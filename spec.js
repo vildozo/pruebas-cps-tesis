@@ -12,21 +12,18 @@ describe('Protractor Children Management', function() {
   });
 
 
-  //TEST 1
-    it('Open app on the Manage Children View', function() {
-        browser.sleep(1000);
+    it('1 Open app on the Manage Children View', function() {
+        // browser.sleep(1000);
         expect(browser.getTitle()).toEqual('Manage Children');
         logger.log('info','');
    });
 
-//TEST 2
-  it('No Child registered', function() {
+  it('2 No Child registered', function() {
         expect(element(by.id('NoChildRegistered')).getText()).toEqual("PLEASE REGISTER ONE ABOVE");
         logger.log('info','');
   });
 
-//TEST 3
-    it('Button Create disable when creating a new childs name field is empty', function() {
+    it('3 Button Create disable when creating a new child when name field is empty', function() {
         addAChild.click();
         element(by.model("child.gender")).element(by.css("[value='Male']")).click();
         var createButton = element(by.buttonText("Create"));
@@ -34,11 +31,10 @@ describe('Protractor Children Management', function() {
         logger.log('info','Button Create disable when creating a new childs name field is empty');
     });
 
-//TEST 4
-    it('Registrar niño con fecha posterior a la actual', function() {
+    it('4 Cant Register a Child with tomorrows Date', function() {
         addAChild.click();
         var childsNameInput = element(by.id('childs_name'));
-        element(by.model("child.first_name")).sendKeys("Javier Vildozo");
+        element(by.model("child.first_name")).sendKeys("Posterior a Fecha actual");
         element(by.model("child.gender")).element(by.css("[value='Male']")).click();
         element(by.model("child.birthday")).sendKeys("06/22/2081");
         element(by.buttonText("Create")).click();
@@ -49,8 +45,7 @@ describe('Protractor Children Management', function() {
         logger.log('info','');
     });
 
-//TEST 5
-    it('En el modal "New Child" se puede hace click en el button cancel', function() {
+    it('5 Cancel option when registeringa a "New Child" ', function() {
         addAChild.click();
         titleModalNewChild = element(by.id('head_New_Child'));
         expect(titleModalNewChild.getText()).toEqual("New Child");
@@ -59,8 +54,7 @@ describe('Protractor Children Management', function() {
         logger.log('info','');
     });
 
-//TEST 6
-      it('Add first Child', function() {
+      it('6 Add first Child', function() {
         addAChild.click();
         var childsNameInput = element(by.id('childs_name'));
         element(by.model("child.first_name")).sendKeys("Javier Vildozo");
@@ -79,37 +73,35 @@ describe('Protractor Children Management', function() {
         logger.log('info','');
     });
 
-//TEST 7
-    it('Edit a Child', function() {
+    it('7 Edit a Child', function() {
         var moreButton= element(by.id('moreButton'));
         moreButton.click();
         element(by.buttonText("Edit child")).click();
-        element(by.model("editableChild.first_name")).clear().sendKeys("Marcos");
+        element(by.model("editableChild.first_name")).clear().sendKeys("Lisa");
+        element(by.model("editableChild.gender")).element(by.css("[value='Female']")).click();
         element(by.buttonText("Save")).click();
         element(by.repeater("child in childs")).getText().then(function (text) {
-            expect(text).toMatch("Marcos");
+            expect(text).toMatch("Lisa");
         });
         logger.log('info','');
 
     });
 
 
-//TEST 8
-    it('You can Cancel in windows in order to not delete a Child', function() {
+    it('8 You can Cancel in windows in order to not delete a Child', function() {
         var moreButton= element(by.id('moreButton'));
         moreButton.click();
         element(by.buttonText("Delete child")).click();
         element(by.buttonText("Cancel")).click();
         element(by.repeater("child in childs")).getText().then(function (text) {
-            expect(text).toMatch("Marcos");
+            expect(text).toMatch("Lisa");
         });
         logger.log('info','');
 
     });
 
 
-//TEST 9
-    it('Delete a Child', function() {
+    it('9 Delete a Child', function() {
         var moreButton= element(by.id('moreButton'));
         moreButton.click();
         element(by.buttonText("Delete child")).click();
@@ -130,8 +122,7 @@ describe('Protractor Children Management', function() {
 
 
 
-// //TEST 7
-//     it('Crear 2do niño ', function() {
+//     it('10 Crear 2do niño ', function() {
 //           addAChild.click();
 //           var childsNameInput = element(by.id('childs_name'));
 //           element(by.model("child.first_name")).sendKeys("Maria Coloma");
