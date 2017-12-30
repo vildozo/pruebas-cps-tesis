@@ -142,18 +142,38 @@ describe('Protractor Children Management', function() {
 //        expect(element(by.tagName('h2')).getText()).toBe('ALSUP');
 //
 //     });
+//
+//     it('12 ALSUP debe tener botones de Lagging Skills y Unsolved Problems', function () {
+//         element(by.id("child_selected")).click();
+//         browser.sleep(5000);
+//         expect(element(by.id("laggingSkillsID")).getText()).toBe('Lagging Skills');
+//         expect(element(by.id("unsolvedProblemsID")).getText()).toBe('Unsolved Problems');
+//     });
+//
+//     it('13 Marcar Lagging skill y este cambiara su color de letra a azul', function () {
+//         element(by.id("child_selected")).click();
+//         browser.sleep(5000);
+//         expect(element(by.id("laggingSkillsID")).getText()).toBe('Lagging Skills');
+//     });
 
-    it('ALSUP debe tener botones de Lagging Skills y Unsolved Problems', function () {
+    it('14 Ingresar a los Lagging Skills y marcar uno', function () {
         element(by.id("child_selected")).click();
         browser.sleep(5000);
-        expect(element(by.id("laggingSkillsID")).getText()).toBe('Lagging Skills');
-        expect(element(by.id("unsolvedProblemsID")).getText()).toBe('Unsolved Problems');
-    });
+        element(by.id("laggingSkillsID")).click();
 
-    it('Marcar Lagging skill y este cambiara su color de letra a azul', function () {
-        element(by.id("child_selected")).click();
-        browser.sleep(5000);
-        expect(element(by.id("laggingSkillsID")).getText()).toBe('Lagging Skills');
+        var laggingSkill=element(by.repeater("laggingSkill in laggingSkills"));
+        browser.actions()
+            .mouseDown(laggingSkill)
+            .mouseMove({x: -200, y: 0}) // try different value of x
+            .mouseUp()
+            .perform();
+
+
+        element(by.className("button-positive ion-checkmark button")).click();
+
+        browser.sleep(6000);
+        var marcado= element(by.binding("laggingSkill.description"));
+        expect(marcado.getCssValue('color')).toBe('rgba(56, 126, 245, 1)');
     });
 
 
