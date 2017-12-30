@@ -440,3 +440,108 @@
 {"meta":"","level":"info","message":"","timestamp":"2017-12-13T07:33:38.557Z"}
 {"meta":"","level":"info","message":"","timestamp":"2017-12-13T07:33:47.975Z"}
 {"meta":"","level":"info","message":"","timestamp":"2017-12-13T07:33:56.790Z"}
+{"meta":"","level":"info","message":"","timestamp":"2017-12-13T09:37:10.988Z"}
+{"meta":"","level":"info","message":"","timestamp":"2017-12-13T09:37:18.744Z"}
+{"level":"info","message":"Button Create disable when creating a new childs name field is empty","timestamp":"2017-12-13T09:37:26.609Z"}
+{"meta":"","level":"info","message":"","timestamp":"2017-12-13T09:37:34.970Z"}
+{"meta":"","level":"info","message":"","timestamp":"2017-12-13T09:37:43.730Z"}
+{"meta":"","level":"info","message":"","timestamp":"2017-12-13T09:37:52.553Z"}
+{"meta":"","level":"info","message":"","timestamp":"2017-12-13T09:38:09.437Z"}
+{"meta":"","level":"info","message":"","timestamp":"2017-12-13T09:38:19.093Z"}
+{"meta":"","level":"info","message":"","timestamp":"2017-12-13T09:38:28.153Z"}
+{"level":"info","message":"1 Open app on the Manage Children View","timestamp":"2017-12-13T09:41:51.567Z"}
+{"level":"info","message":"2 No Child registered","timestamp":"2017-12-13T09:41:59.183Z"}
+{"level":"info","message":"3 Button Create disable when creating a new child when name field is empty","timestamp":"2017-12-13T09:42:06.756Z"}
+{"level":"info","message":"4 Cant Register a Child with tomorrows Date","timestamp":"2017-12-13T09:42:15.206Z"}
+{"level":"info","message":"5 Cancel option when registeringa a \"New Child","timestamp":"2017-12-13T09:42:23.987Z"}
+{"level":"info","message":"6 Add first Child","timestamp":"2017-12-13T09:42:32.860Z"}
+{"level":"info","message":"7 Edit a Child","timestamp":"2017-12-13T09:42:49.626Z"}
+{"level":"info","message":"8 You can Cancel in windows in order to not delete a Child","timestamp":"2017-12-13T09:42:59.214Z"}
+{"level":"info","message":"9 Delete a Child","timestamp":"2017-12-13T09:43:08.201Z"}
+{"level":"info","message":"1 Open app on the Manage Children View","timestamp":"2017-12-13T09:44:35.380Z"}
+{"level":"info","message":"2 No Child registered","timestamp":"2017-12-13T09:44:43.133Z"}
+{"level":"info","message":"3 Button Create disable when creating a new child when name field is empty","timestamp":"2017-12-13T09:44:50.689Z"}
+{"level":"info","message":"4 Cant Register a Child with tomorrows Date","timestamp":"2017-12-13T09:44:59.209Z"}
+{"level":"info","message":"5 Cancel option when registeringa a \"New Child","timestamp":"2017-12-13T09:45:07.832Z"}
+{"level":"info","message":"6 Add first Child","timestamp":"2017-12-13T09:45:16.705Z"}
+{"level":"info","message":"7 Edit a Child","timestamp":"2017-12-13T09:45:26.029Z"}
+{"level":"info","message":"8 You can Cancel in windows in order to not delete a Child","timestamp":"2017-12-13T09:45:35.703Z"}
+{"level":"info","message":"9 Delete a Child","timestamp":"2017-12-13T09:45:44.811Z"}
+{"level":"info","message":"1 Open app on the Manage Children View","timestamp":"2017-12-13T09:46:40.909Z"}
+{"level":"info","message":"2 No Child registered","timestamp":"2017-12-13T09:46:48.419Z"}
+{"level":"info","message":"3 Button Create disable when creating a new child when name field is empty","timestamp":"2017-12-13T09:46:55.929Z"}
+{"level":"info","message":"4 Cant Register a Child with tomorrows Date","timestamp":"2017-12-13T09:47:04.408Z"}
+{"level":"info","message":"5 Cancel option when registeringa a \"New Child","timestamp":"2017-12-13T09:47:13.173Z"}
+{"level":"info","message":"6 Add first Child","timestamp":"2017-12-13T09:47:22.006Z"}
+{"level":"info","message":"7 Edit a Child","timestamp":"2017-12-13T09:47:33.787Z"}
+{"level":"info","message":"8 You can Cancel in windows in order to not delete a Child","timestamp":"2017-12-13T09:47:43.450Z"}
+{"level":"info","message":"9 Delete a Child","timestamp":"2017-12-13T09:47:52.516Z"}
+{"level":"info","message":"1 Open app on the Manage Children View","timestamp":"2017-12-13T09:48:33.431Z"}
+{"level":"info","message":"2 No Child registered","timestamp":"2017-12-13T09:48:40.945Z"}
+{"level":"info","message":"3 Button Create disable when creating a new child when name field is empty","timestamp":"2017-12-13T09:48:48.449Z"}
+{"level":"info","message":"4 Cant Register a Child with tomorrows Date","timestamp":"2017-12-13T09:48:56.863Z"}
+{"level":"info","message":"5 Cancel option when registeringa a \"New Child","timestamp":"2017-12-13T09:49:05.633Z"}
+{"level":"info","message":"6 Add first Child","timestamp":"2017-12-13T09:49:14.567Z"}
+{"level":"info","message":"7 Edit a Child","timestamp":"2017-12-13T09:49:29.317Z"}
+{"level":"info","message":"8 You can Cancel in windows in order to not delete a Child","timestamp":"2017-12-13T09:49:38.975Z"}
+{"level":"info","message":"9 Delete a Child","timestamp":"2017-12-13T09:49:47.946Z"}
+{"level":"info","message":"1 Open app on the Manage Children View","timestamp":"2017-12-13T09:50:54.557Z"}
+{"level":"info","message":"2 No Child registered","timestamp":"2017-12-13T09:51:02.214Z"}
+{"level":"info","message":"3 Button Create disable when creating a new child when name field is empty","timestamp":"2017-12-13T09:51:09.790Z"}
+{"level":"info","message":"4 Cant Register a Child with tomorrows Date","timestamp":"2017-12-13T09:51:18.164Z"}
+{"level":"info","message":"5 Cancel option when registeringa a \"New Child","timestamp":"2017-12-13T09:51:27.047Z"}
+{"level":"info","message":"6 Add first Child","timestamp":"2017-12-13T09:51:35.960Z"}
+{"level":"info","message":"7 Edit a Child","timestamp":"2017-12-13T09:51:50.900Z"}
+{"level":"info","message":"8 You can Cancel in windows in order to not delete a Child","timestamp":"2017-12-13T09:52:00.639Z"}
+{"level":"info","message":"9 Delete a Child","timestamp":"2017-12-13T09:52:09.691Z"}
+{"level":"info","message":"1 Open app on the Manage Children View","timestamp":"2017-12-13T10:08:14.497Z"}
+{"level":"info","message":"2 No Child registered","timestamp":"2017-12-13T10:08:22.229Z"}
+{"level":"info","message":"3 Button Create disable when creating a new child when name field is empty","timestamp":"2017-12-13T10:08:29.905Z"}
+{"level":"info","message":"4 Cant Register a Child with tomorrows Date","timestamp":"2017-12-13T10:08:38.480Z"}
+{"level":"info","message":"5 Cancel option when registeringa a \"New Child","timestamp":"2017-12-13T10:08:47.447Z"}
+{"level":"info","message":"6 Add first Child","timestamp":"2017-12-13T10:08:56.476Z"}
+{"level":"info","message":"7 Edit a Child","timestamp":"2017-12-13T10:09:11.570Z"}
+{"level":"info","message":"8 You can Cancel in windows in order to not delete a Child","timestamp":"2017-12-13T10:09:21.582Z"}
+{"level":"info","message":"9 Delete a Child","timestamp":"2017-12-13T10:09:30.957Z"}
+{"meta":"","level":"info","message":"","timestamp":"2017-12-13T10:09:40.036Z"}
+{"level":"info","message":"1 Open app on the Manage Children View","timestamp":"2017-12-13T10:11:33.294Z"}
+{"level":"info","message":"2 No Child registered","timestamp":"2017-12-13T10:11:40.947Z"}
+{"level":"info","message":"3 Button Create disable when creating a new child when name field is empty","timestamp":"2017-12-13T10:11:48.652Z"}
+{"level":"info","message":"4 Cant Register a Child with tomorrows Date","timestamp":"2017-12-13T10:11:57.001Z"}
+{"level":"info","message":"5 Cancel option when registeringa a \"New Child","timestamp":"2017-12-13T10:12:05.630Z"}
+{"level":"info","message":"6 Add first Child","timestamp":"2017-12-13T10:12:14.637Z"}
+{"level":"info","message":"7 Edit a Child","timestamp":"2017-12-13T10:12:29.464Z"}
+{"level":"info","message":"8 You can Cancel in windows in order to not delete a Child","timestamp":"2017-12-13T10:12:39.065Z"}
+{"level":"info","message":"9 Delete a Child","timestamp":"2017-12-13T10:12:48.046Z"}
+{"meta":"","level":"info","message":"","timestamp":"2017-12-13T10:12:57.118Z"}
+{"level":"info","message":"1 Open app on the Manage Children View","timestamp":"2017-12-13T12:58:42.861Z"}
+{"level":"info","message":"2 No Child registered","timestamp":"2017-12-13T12:58:50.511Z"}
+{"level":"info","message":"3 Button Create disable when creating a new child when name field is empty","timestamp":"2017-12-13T12:58:58.045Z"}
+{"level":"info","message":"4 Cant Register a Child with tomorrows Date","timestamp":"2017-12-13T12:59:06.451Z"}
+{"level":"info","message":"5 Cancel option when registeringa a \"New Child","timestamp":"2017-12-13T12:59:15.106Z"}
+{"level":"info","message":"6 Add first Child","timestamp":"2017-12-13T12:59:24.111Z"}
+{"level":"info","message":"7 Edit a Child","timestamp":"2017-12-13T12:59:31.678Z"}
+{"level":"info","message":"8 You can Cancel in windows in order to not delete a Child","timestamp":"2017-12-13T12:59:39.045Z"}
+{"level":"info","message":"9 Delete a Child","timestamp":"2017-12-13T12:59:46.596Z"}
+{"meta":"","level":"info","message":"","timestamp":"2017-12-13T12:59:54.009Z"}
+{"level":"info","message":"1 Open app on the Manage Children View","timestamp":"2017-12-28T21:51:49.614Z"}
+{"level":"info","message":"2 No Child registered","timestamp":"2017-12-28T21:51:52.132Z"}
+{"level":"info","message":"3 Button Create disable when creating a new child when name field is empty","timestamp":"2017-12-28T21:51:52.146Z"}
+{"level":"info","message":"4 Cant Register a Child with tomorrows Date","timestamp":"2017-12-28T21:51:52.160Z"}
+{"level":"info","message":"5 Cancel option when registeringa a \"New Child","timestamp":"2017-12-28T21:51:52.176Z"}
+{"level":"info","message":"6 Add first Child","timestamp":"2017-12-28T21:51:52.196Z"}
+{"level":"info","message":"7 Edit a Child","timestamp":"2017-12-28T21:51:52.223Z"}
+{"level":"info","message":"8 You can Cancel in windows in order to not delete a Child","timestamp":"2017-12-28T21:51:52.263Z"}
+{"level":"info","message":"9 Delete a Child","timestamp":"2017-12-28T21:51:52.275Z"}
+{"meta":"","level":"info","message":"","timestamp":"2017-12-28T21:51:52.282Z"}
+{"level":"info","message":"1 Open app on the Manage Children View","timestamp":"2017-12-28T21:52:02.914Z"}
+{"level":"info","message":"2 No Child registered","timestamp":"2017-12-28T21:52:10.519Z"}
+{"level":"info","message":"3 Button Create disable when creating a new child when name field is empty","timestamp":"2017-12-28T21:52:18.175Z"}
+{"level":"info","message":"4 Cant Register a Child with tomorrows Date","timestamp":"2017-12-28T21:52:26.707Z"}
+{"level":"info","message":"5 Cancel option when registeringa a \"New Child","timestamp":"2017-12-28T21:52:35.855Z"}
+{"level":"info","message":"6 Add first Child","timestamp":"2017-12-28T21:52:45.087Z"}
+{"level":"info","message":"7 Edit a Child","timestamp":"2017-12-28T21:53:00.461Z"}
+{"level":"info","message":"8 You can Cancel in windows in order to not delete a Child","timestamp":"2017-12-28T21:53:10.442Z"}
+{"level":"info","message":"9 Delete a Child","timestamp":"2017-12-28T21:53:19.526Z"}
+{"meta":"","level":"info","message":"","timestamp":"2017-12-28T21:53:28.856Z"}
+{"meta":"","level":"info","message":"","timestamp":"2017-12-28T21:57:33.847Z"}
