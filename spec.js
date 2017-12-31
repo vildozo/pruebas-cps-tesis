@@ -176,14 +176,26 @@ describe('Protractor Children Management', function() {
         expect(marcado.getCssValue('color')).toBe('rgba(56, 126, 245, 1)');
     });
 
+    it('15 Ingresar a los Lagging Skills y desmarcar uno lagging Skill previamente marcado', function () {
+        element(by.id("child_selected")).click();
+        browser.sleep(5000);
+        element(by.id("laggingSkillsID")).click();
 
+        var marcado= element(by.binding("laggingSkill.description"));
+        browser.actions()
+            .mouseDown(marcado)
+            .mouseMove({x: -200, y: 0}) // try different value of x
+            .mouseUp()
+            .perform();
+        browser.sleep(9000);
 
-// // it('aa', function () {
-// //     element.all(by.css('.childs_name')).getText().then(function(childNames) {
-// //         console.log("////////////////////////////////////////////////")
-// //         console.log(childNames);
-// //     });
-// // })
+        element(by.className("button-dark ion-close")).click();
+        browser.sleep(9000);
+    
+    //     // var laggingSkill=element(by.repeater("laggingSkill in laggingSkills"));
+    //     //expect(laggingSkill.getCssValue('color')).toBe('rgba(56, 126, 245, 1)');
+    });
+
 
 
 
