@@ -9,6 +9,7 @@ describe('Protractor Children Management', function() {
 
   beforeEach(function() {
     browser.get('http://localhost:8100');
+      browser.driver.manage().window().setSize(750, 800);
   });
 
 
@@ -193,16 +194,59 @@ describe('Protractor Children Management', function() {
 //           var laggingSkill=element(by.repeater("laggingSkill in laggingSkills"));
 //           expect(laggingSkill.getCssValue('color')).toBe('rgba(68, 68, 68, 1)');
 //     });
-
-    it('16 al hacer click en un lagging skills se mostrara la vista de unsolved problems', function () {
-        element(by.id("child_selected")).click();
-        browser.sleep(5000);
-        element(by.id("laggingSkillsID")).click();
-
-        element(by.binding("laggingSkill.description")).click();
-        browser.sleep(4000);
-        expect(element(by.tagName('b')).getText()).toBe('Unsolved Problems');
-    });
+//
+//     it('16 al hacer click en un lagging skills se mostrara la vista de unsolved problems', function () {
+//         element(by.id("child_selected")).click();
+//         browser.sleep(5000);
+//         element(by.id("laggingSkillsID")).click();
+//
+//         element(by.binding("laggingSkill.description")).click();
+//         browser.sleep(4000);
+//         expect(element(by.tagName('b')).getText()).toBe('Unsolved Problems');
+//     });
+//
+//     it('17 El boton para crear unsolved problem estara inhabilitado mientras este vacio el campo de unsolved problems',function () {
+//         element(by.id("child_selected")).click();
+//         browser.sleep(5000);
+//         element(by.id("laggingSkillsID")).click();
+//
+//         element(by.binding("laggingSkill.description")).click();
+//         browser.sleep(4000);
+//         element(by.className("watchlist_menu button button-small button-clear button-positive")).click();
+//         var createButton = element(by.buttonText("Create"));
+//         expect(createButton.isEnabled()).toBe(false);
+//
+//     })
+//
+//     it('18 Crear un nuevo Unsolved Problem', function () {
+//         element(by.id("child_selected")).click();
+//         browser.sleep(5000);
+//         element(by.id("laggingSkillsID")).click();
+//
+//         element(by.binding("laggingSkill.description")).click();
+//         browser.sleep(4000);
+//         element(by.className("watchlist_menu button button-small button-clear button-positive")).click();
+//
+//         element(by.model("unsolvedProblem.description")).sendKeys("Unsolved Problem 1");
+//         element(by.buttonText("Create")).click();
+//         browser.sleep(3000);
+//         expect(element(by.binding("unsolvedProblem.description")).getText()).toBe("Unsolved Problem 1");
+//     });
+    //
+    // it('19 Se puede cancelar la creacion de unsolved problem    9', function () {
+    //     element(by.id("child_selected")).click();
+    //     browser.sleep(5000);
+    //     element(by.id("laggingSkillsID")).click();
+    //
+    //     element(by.binding("laggingSkill.description")).click();
+    //     browser.sleep(4000);
+    //     element(by.className("watchlist_menu button button-small button-clear button-positive")).click();
+    //
+    //     element(by.model("unsolvedProblem.description")).sendKeys("Unsolved Problem 1");
+    //     element(by.buttonText("Cancel")).click();
+    //     browser.sleep(3000);
+    //     expect(element(by.tagName('b')).getText()).toBe('Unsolved Problems');
+    // })
 
 
 
