@@ -168,10 +168,9 @@ describe('Protractor Children Management', function() {
             .mouseUp()
             .perform();
 
-
         element(by.className("button-positive ion-checkmark button")).click();
 
-        browser.sleep(6000);
+        browser.sleep(5000);
         var marcado= element(by.binding("laggingSkill.description"));
         expect(marcado.getCssValue('color')).toBe('rgba(56, 126, 245, 1)');
     });
@@ -187,13 +186,12 @@ describe('Protractor Children Management', function() {
             .mouseMove({x: -200, y: 0}) // try different value of x
             .mouseUp()
             .perform();
-        browser.sleep(9000);
+        browser.sleep(3000);
 
-        element(by.className("button-dark ion-close")).click();
-        browser.sleep(9000);
-    
-    //     // var laggingSkill=element(by.repeater("laggingSkill in laggingSkills"));
-    //     //expect(laggingSkill.getCssValue('color')).toBe('rgba(56, 126, 245, 1)');
+          element(by.className("button-dark ion-close")).click();
+          browser.sleep(3000);
+          var laggingSkill=element(by.repeater("laggingSkill in laggingSkills"));
+          expect(laggingSkill.getCssValue('color')).toBe('rgba(68, 68, 68, 1)');
     });
 
 
