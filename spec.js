@@ -155,43 +155,53 @@ describe('Protractor Children Management', function() {
 //         browser.sleep(5000);
 //         expect(element(by.id("laggingSkillsID")).getText()).toBe('Lagging Skills');
 //     });
+//
+//     it('14 Ingresar a los Lagging Skills y marcar uno', function () {
+//         element(by.id("child_selected")).click();
+//         browser.sleep(5000);
+//         element(by.id("laggingSkillsID")).click();
+//
+//         var laggingSkill=element(by.repeater("laggingSkill in laggingSkills"));
+//         browser.actions()
+//             .mouseDown(laggingSkill)
+//             .mouseMove({x: -200, y: 0}) // try different value of x
+//             .mouseUp()
+//             .perform();
+//
+//         element(by.className("button-positive ion-checkmark button")).click();
+//
+//         browser.sleep(5000);
+//         var marcado= element(by.binding("laggingSkill.description"));
+//         expect(marcado.getCssValue('color')).toBe('rgba(56, 126, 245, 1)');
+//     });
+//
+//     it('15 Ingresar a los Lagging Skills y desmarcar uno lagging Skill previamente marcado', function () {
+//         element(by.id("child_selected")).click();
+//         browser.sleep(5000);
+//         element(by.id("laggingSkillsID")).click();
+//
+//         var marcado= element(by.binding("laggingSkill.description"));
+//         browser.actions()
+//             .mouseDown(marcado)
+//             .mouseMove({x: -200, y: 0}) // try different value of x
+//             .mouseUp()
+//             .perform();
+//         browser.sleep(3000);
+//
+//           element(by.className("button-dark ion-close")).click();
+//           browser.sleep(3000);
+//           var laggingSkill=element(by.repeater("laggingSkill in laggingSkills"));
+//           expect(laggingSkill.getCssValue('color')).toBe('rgba(68, 68, 68, 1)');
+//     });
 
-    it('14 Ingresar a los Lagging Skills y marcar uno', function () {
+    it('16 al hacer click en un lagging skills se mostrara la vista de unsolved problems', function () {
         element(by.id("child_selected")).click();
         browser.sleep(5000);
         element(by.id("laggingSkillsID")).click();
 
-        var laggingSkill=element(by.repeater("laggingSkill in laggingSkills"));
-        browser.actions()
-            .mouseDown(laggingSkill)
-            .mouseMove({x: -200, y: 0}) // try different value of x
-            .mouseUp()
-            .perform();
-
-        element(by.className("button-positive ion-checkmark button")).click();
-
-        browser.sleep(5000);
-        var marcado= element(by.binding("laggingSkill.description"));
-        expect(marcado.getCssValue('color')).toBe('rgba(56, 126, 245, 1)');
-    });
-
-    it('15 Ingresar a los Lagging Skills y desmarcar uno lagging Skill previamente marcado', function () {
-        element(by.id("child_selected")).click();
-        browser.sleep(5000);
-        element(by.id("laggingSkillsID")).click();
-
-        var marcado= element(by.binding("laggingSkill.description"));
-        browser.actions()
-            .mouseDown(marcado)
-            .mouseMove({x: -200, y: 0}) // try different value of x
-            .mouseUp()
-            .perform();
-        browser.sleep(3000);
-
-          element(by.className("button-dark ion-close")).click();
-          browser.sleep(3000);
-          var laggingSkill=element(by.repeater("laggingSkill in laggingSkills"));
-          expect(laggingSkill.getCssValue('color')).toBe('rgba(68, 68, 68, 1)');
+        element(by.binding("laggingSkill.description")).click();
+        browser.sleep(4000);
+        expect(element(by.tagName('b')).getText()).toBe('Unsolved Problems');
     });
 
 
