@@ -247,8 +247,81 @@ describe('Protractor Children Management', function() {
     //     browser.sleep(3000);
     //     expect(element(by.tagName('b')).getText()).toBe('Unsolved Problems');
     // });
+    //
+    // it('20 Editar un unsolved problem', function () {
+    //     element(by.id("child_selected")).click();
+    //     browser.sleep(5000);
+    //     element(by.id("laggingSkillsID")).click();
+    //
+    //     element(by.binding("laggingSkill.description")).click();
+    //     browser.sleep(4000);
+    //
+    //     var botones_adicionales= element(by.binding("unsolvedProblem.description"));
+    //     browser.actions()
+    //         .mouseDown(botones_adicionales)
+    //         .mouseMove({x: -200, y: 0}) // try different value of x
+    //         .mouseUp()
+    //         .perform();
+    //     browser.sleep(3000);
+    //     element(by.id("edit_button")).click();
+    //     browser.sleep(4000);
+    //     element(by.model("editableUnsolvedProblem.description")).clear().sendKeys("Unsolved Problem 1 EDITADO");
+    //     element(by.buttonText("Save")).click();
+    //     browser.sleep(3000);
+    //
+    //     expect(element(by.binding("unsolvedProblem.description")).getText()).toBe("Unsolved Problem 1 EDITADO");
+    // });
+    //
+    // it('21 Al editar y  modificar datos de un unsolved problem cuando se cancela los datos modificados no deben persistir', function () {
+    //     element(by.id("child_selected")).click();
+    //     browser.sleep(5000);
+    //     element(by.id("laggingSkillsID")).click();
+    //
+    //     element(by.binding("laggingSkill.description")).click();
+    //     browser.sleep(4000);
+    //
+    //     var botones_adicionales= element(by.binding("unsolvedProblem.description"));
+    //     browser.actions()
+    //         .mouseDown(botones_adicionales)
+    //         .mouseMove({x: -200, y: 0}) // try different value of x
+    //         .mouseUp()
+    //         .perform();
+    //     browser.sleep(3000);
+    //     element(by.id("edit_button")).click();
+    //     browser.sleep(4000);
+    //     element(by.model("editableUnsolvedProblem.description")).clear().sendKeys("Probando Boton Cancelar");
+    //     element(by.buttonText("Cancel")).click();
+    //     browser.sleep(3000);
+    //
+    //     expect(element(by.binding("unsolvedProblem.description")).getText()).toBe("Unsolved Problem 1 EDITADO");
+    // });
+    //
+    //
+    // it('22 Al apretar el boton de cancelar en el mensaje de confirmacion para borrar, no borrara el unsolved problem', function () {
+    //     element(by.id("child_selected")).click();
+    //     browser.sleep(5000);
+    //     element(by.id("laggingSkillsID")).click();
+    //
+    //     element(by.binding("laggingSkill.description")).click();
+    //     browser.sleep(4000);
+    //
+    //     var botones_adicionales= element(by.binding("unsolvedProblem.description"));
+    //     browser.actions()
+    //         .mouseDown(botones_adicionales)
+    //         .mouseMove({x: -200, y: 0}) // try different value of x
+    //         .mouseUp()
+    //         .perform();
+    //     browser.sleep(3000);
+    //     element(by.id("delete_button")).click();
+    //     browser.sleep(4000);
+    //     element(by.buttonText("Cancel")).click();
+    //     browser.sleep(3000);
+    //
+    //
+    //     expect(element(by.binding("unsolvedProblem.description")).getText()).toBe("Unsolved Problem 1 EDITADO");
+    // });
 
-    it('20 Editar un unsolved problem', function () {
+    it('23 Al apretar el boton de cancelar en el mensaje de confirmacion para borrar, no borrara el unsolved problem', function () {
         element(by.id("child_selected")).click();
         browser.sleep(5000);
         element(by.id("laggingSkillsID")).click();
@@ -263,17 +336,24 @@ describe('Protractor Children Management', function() {
             .mouseUp()
             .perform();
         browser.sleep(3000);
-        element(by.id("edit_button")).click();
+        element(by.id("delete_button")).click();
         browser.sleep(4000);
-        element(by.model("editableUnsolvedProblem.description")).clear().sendKeys("Unsolved Problem 1 EDITADO");
-        element(by.buttonText("Save")).click();
+        element(by.buttonText("OK")).click();
         browser.sleep(3000);
+        console.log("==========================================================================================");
+        //console.log(element.all(by.tagName("p"))[0].getText());
+        element(by.id("no_unsolved_problems_message")).getText().then(function (text) {
+            expect(text).toBe("No unsolved problems registered. Please register one above.");
+            // console.log(elementos[0].getText());
+            console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            console.log(text);
 
-        var aux=element(by.binding("unsolvedProblem.description"));
-        expect(aux.getText()).toBe("Unsolved Problem 1 EDITADO");
+        });
+            //.toBe("No unsolved problems registered. Please register one above.");
+        //expect(element(by.binding("unsolvedProblem.description")).getText()).toBe("Unsolved Problem 1 EDITADO");
     });
 
-    // it('21 se debo poder crear un segundo unsolved Problem',function () {
+    // it('24 se debo poder crear un segundo unsolved Problem',function () {
     //     element(by.id("child_selected")).click();
     //     browser.sleep(5000);
     //     element(by.id("laggingSkillsID")).click();
@@ -293,7 +373,7 @@ describe('Protractor Children Management', function() {
     //     });
     // });
     //
-    // it('22 priorizar lista de unsolved problems',function () {
+    // it('25 priorizar lista de unsolved problems',function () {
     //     element(by.id("child_selected")).click();
     //     browser.sleep(5000);
     //     element(by.id("laggingSkillsID")).click();
