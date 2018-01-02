@@ -218,20 +218,20 @@ describe('Protractor Children Management', function() {
 //
 //     })
 //
-//     it('18 Crear un nuevo Unsolved Problem', function () {
-//         element(by.id("child_selected")).click();
-//         browser.sleep(5000);
-//         element(by.id("laggingSkillsID")).click();
-//
-//         element(by.binding("laggingSkill.description")).click();
-//         browser.sleep(4000);
-//         element(by.className("watchlist_menu button button-small button-clear button-positive")).click();
-//
-//         element(by.model("unsolvedProblem.description")).sendKeys("Unsolved Problem 1");
-//         element(by.buttonText("Create")).click();
-//         browser.sleep(3000);
-//         expect(element(by.binding("unsolvedProblem.description")).getText()).toBe("Unsolved Problem 1");
-//     });
+    it('18 Crear un nuevo Unsolved Problem', function () {
+        element(by.id("child_selected")).click();
+        browser.sleep(5000);
+        element(by.id("laggingSkillsID")).click();
+
+        element(by.binding("laggingSkill.description")).click();
+        browser.sleep(4000);
+        element(by.className("watchlist_menu button button-small button-clear button-positive")).click();
+
+        element(by.model("unsolvedProblem.description")).sendKeys("Unsolved Problem 1");
+        element(by.buttonText("Create")).click();
+        browser.sleep(3000);
+        expect(element(by.binding("unsolvedProblem.description")).getText()).toBe("Unsolved Problem 1");
+    });
     //
     // it('19 Se puede cancelar la creacion de unsolved problem    9', function () {
     //     element(by.id("child_selected")).click();
@@ -246,7 +246,92 @@ describe('Protractor Children Management', function() {
     //     element(by.buttonText("Cancel")).click();
     //     browser.sleep(3000);
     //     expect(element(by.tagName('b')).getText()).toBe('Unsolved Problems');
-    // })
+    // });
+
+    it('20 Editar un unsolved problem', function () {
+        element(by.id("child_selected")).click();
+        browser.sleep(5000);
+        element(by.id("laggingSkillsID")).click();
+
+        element(by.binding("laggingSkill.description")).click();
+        browser.sleep(4000);
+
+        var botones_adicionales= element(by.binding("unsolvedProblem.description"));
+        browser.actions()
+            .mouseDown(botones_adicionales)
+            .mouseMove({x: -200, y: 0}) // try different value of x
+            .mouseUp()
+            .perform();
+        browser.sleep(3000);
+        element(by.id("edit_button")).click();
+        browser.sleep(4000);
+        element(by.model("editableUnsolvedProblem.description")).clear().sendKeys("Unsolved Problem 1 EDITADO");
+        element(by.buttonText("Save")).click();
+        browser.sleep(3000);
+
+        var aux=element(by.binding("unsolvedProblem.description"));
+        expect(aux.getText()).toBe("Unsolved Problem 1 EDITADO");
+    });
+
+    // it('21 se debo poder crear un segundo unsolved Problem',function () {
+    //     element(by.id("child_selected")).click();
+    //     browser.sleep(5000);
+    //     element(by.id("laggingSkillsID")).click();
+    //
+    //     element(by.binding("laggingSkill.description")).click();
+    //     browser.sleep(4000);
+    //     element(by.className("watchlist_menu button button-small button-clear button-positive")).click();
+    //
+    //     element(by.model("unsolvedProblem.description")).sendKeys("Unsolved Problem 2");
+    //     element(by.buttonText("Create")).click();
+    //     browser.sleep(3000);
+    //     element.all(by.binding("unsolvedProblem.description")).then(function (items) {
+    //         console.log("======================================");
+    //         items[1].getText().then(function (text) {
+    //             expect(text).toBe("Unsolved Problem 2");
+    //         });
+    //     });
+    // });
+    //
+    // it('22 priorizar lista de unsolved problems',function () {
+    //     element(by.id("child_selected")).click();
+    //     browser.sleep(5000);
+    //     element(by.id("laggingSkillsID")).click();
+    //
+    //     element(by.binding("laggingSkill.description")).click();
+    //     browser.sleep(4000);
+    //     element(by.id("orderUnsolvedProblems")).click();
+    //     browser.sleep(3000);
+    //     var UPPriorizacion = element.all(by.id("boton_priorizacion"));
+
+        // browser.actions().
+        // mouseMove(UPPriorizacion.get(0)).
+        // mouseMove({x: 0, y: 150}).
+        // doubleClick().
+        // perform();
+        // browser.sleep(10000);
+
+
+        // browser.actions().
+        // dragAndDrop(UPPriorizacion.get(0), UPPriorizacion.get(1)).
+        // perform();
+        // browser.sleep(10000);
+
+        // browser.actions().
+        // mouseDown(UPPriorizacion.get(0)).
+        // mouseMove(UPPriorizacion.get(1)).
+        // mouseUp().
+        // perform();
+        //browser.sleep(10000);
+
+
+        // browser.actions()
+        //     .mouseDown(UPPriorizacion)
+        //     .mouseMove({x: 0, y: -155}) // try different value of x
+        //     .mouseUp()
+        //     .perform();
+        // browser.sleep(6000);
+    // });
 
 
 
