@@ -455,112 +455,162 @@ describe('Protractor Children Management', function() {
         expect(element(by.binding("unsolvedProblem.description")).getText()).toBe("Unsolved Problem 2");
 
     });
-    //
-    //
-    // it('30 En la opciones de un unsolved problem debe permitir ingresar al step 2(Empathy step)', function () {
-    //     element(by.id("child_selected")).click();
-    //     browser.sleep(5000);
-    //     element(by.id("laggingSkillsID")).click();
-    //
-    //     element(by.binding("laggingSkill.description")).click();
-    //     browser.sleep(4000);
-    //
-    //     var botones_adicionales= element(by.binding("unsolvedProblem.description"));
-    //     browser.actions()
-    //         .mouseDown(botones_adicionales)
-    //         .mouseMove({x: -200, y: 0}) // try different value of x
-    //         .mouseUp()
-    //         .perform();
-    //     browser.sleep(3000);
-    //     element(by.id("more_button")).click();
-    //     browser.sleep(4000);
-    //     element(by.buttonText("Step 1: Empathy Step")).click();
-    //     browser.sleep(2000);
-    //
-    //
-    // });
-    //
-    // it('31 probar mensaje de ayuda en empathy step',function () {
-    //
-    //     element(by.id("child_selected")).click();
-    //     browser.sleep(5000);
-    //     element(by.id("laggingSkillsID")).click();
-    //
-    //     element(by.binding("laggingSkill.description")).click();
-    //     browser.sleep(4000);
-    //
-    //     var botones_adicionales= element(by.binding("unsolvedProblem.description"));
-    //     browser.actions()
-    //         .mouseDown(botones_adicionales)
-    //         .mouseMove({x: -200, y: 0}) // try different value of x
-    //         .mouseUp()
-    //         .perform();
-    //     browser.sleep(3000);
-    //     element(by.id("more_button")).click();
-    //     browser.sleep(4000);
-    //     element(by.buttonText("Step 1: Empathy Step")).click();
-    //     browser.sleep(2000);
-    //
-    //     expect(element(by.id("help_message")).getText()).toMatch("I've noticed that you've been having ");
-    //     expect(element(by.id("help_message")).getText()).toMatch("Unsolved Problem 2");
-    //     expect(element(by.id("help_message")).getText()).toMatch(", what's up?");
-    // });
-    //
-    // it('32 No se puede crear un nuevo Child Concern con el campo child concern vacio',function () {
-    //
-    //     element(by.id("child_selected")).click();
-    //     browser.sleep(5000);
-    //     element(by.id("laggingSkillsID")).click();
-    //
-    //     element(by.binding("laggingSkill.description")).click();
-    //     browser.sleep(4000);
-    //
-    //     var botones_adicionales= element(by.binding("unsolvedProblem.description"));
-    //     browser.actions()
-    //         .mouseDown(botones_adicionales)
-    //         .mouseMove({x: -200, y: 0}) // try different value of x
-    //         .mouseUp()
-    //         .perform();
-    //     browser.sleep(3000);
-    //     element(by.id("more_button")).click();
-    //     browser.sleep(4000);
-    //     element(by.buttonText("Step 1: Empathy Step")).click();
-    //     browser.sleep(2000);
-    //     element(by.className("watchlist_menu button button-small button-clear button-positive")).click();
-    //     var createButton = element(by.buttonText("Create"));
-    //
-    //     expect(createButton.isEnabled()).toBe(false);
-    // });
 
-    // it('33 Se puede cancelar la creacion de un nuevo child concern',function () {
-    //
-    //     element(by.id("child_selected")).click();
-    //     browser.sleep(5000);
-    //     element(by.id("laggingSkillsID")).click();
-    //
-    //     element(by.binding("laggingSkill.description")).click();
-    //     browser.sleep(4000);
-    //
-    //     var botones_adicionales= element(by.binding("unsolvedProblem.description"));
-    //     browser.actions()
-    //         .mouseDown(botones_adicionales)
-    //         .mouseMove({x: -200, y: 0}) // try different value of x
-    //         .mouseUp()
-    //         .perform();
-    //     browser.sleep(3000);
-    //     element(by.id("more_button")).click();
-    //     browser.sleep(4000);
-    //     element(by.buttonText("Step 1: Empathy Step")).click();
-    //     browser.sleep(2000);
-    //     element(by.className("watchlist_menu button button-small button-clear button-positive")).click();
-    //     var createButton = element(by.buttonText("Create"));
-    //     element(by.buttonText("Cancel")).click();
-    //
-    //     browser.sleep(1000);
-    //     expect(element(by.id("no_childs_message")).getText()).toBe("No child's concern registered. Please register one above.");
-    // });
+        it('30 desde la vista de unsolved problems no se puede pasar al step 2(Adult Concern) sin haber pasado el step 1(Empathy Step)',function () {
+            element(by.id("child_selected")).click();
+            browser.sleep(5000);
+            element(by.id("laggingSkillsID")).click();
 
-    it('34 Crear un nuevo child concern',function () {
+            element(by.binding("laggingSkill.description")).click();
+            browser.sleep(4000);
+
+            var botones_adicionales= element(by.binding("unsolvedProblem.description"));
+            browser.actions()
+                .mouseDown(botones_adicionales)
+                .mouseMove({x: -200, y: 0}) // try different value of x
+                .mouseUp()
+                .perform();
+            browser.sleep(3000);
+            element(by.id("more_button")).click();
+            browser.sleep(4000);
+            element(by.buttonText("Step 2: Define Adult's Concern")).click();
+            browser.sleep(2000);
+            this.popupContainsHeaderText = function (text) {
+                        this.popupShouldExist();
+                        expect(this.popup.element(by.css('.popup-head')).getText()).toMatch("You have to finish previous steps to continue.");
+                    };
+        });
+
+    it('31 desde la vista de unsolved problems no se puede pasar al step 3(Invitation Step) sin haber pasado el step 1(Empathy Step)',function () {
+        element(by.id("child_selected")).click();
+        browser.sleep(5000);
+        element(by.id("laggingSkillsID")).click();
+
+        element(by.binding("laggingSkill.description")).click();
+        browser.sleep(4000);
+
+        var botones_adicionales= element(by.binding("unsolvedProblem.description"));
+        browser.actions()
+            .mouseDown(botones_adicionales)
+            .mouseMove({x: -200, y: 0}) // try different value of x
+            .mouseUp()
+            .perform();
+        browser.sleep(3000);
+        element(by.id("more_button")).click();
+        browser.sleep(4000);
+        element(by.buttonText("Step 3: Invitation Step")).click();
+        browser.sleep(2000);
+        this.popupContainsHeaderText = function (text) {
+            this.popupShouldExist();
+            expect(this.popup.element(by.css('.popup-head')).getText()).toMatch("You have to finish previous steps to continue.");
+        };
+    });
+
+
+    it('32 En la opciones de un unsolved problem debe permitir ingresar al step 2(Empathy step)', function () {
+        element(by.id("child_selected")).click();
+        browser.sleep(5000);
+        element(by.id("laggingSkillsID")).click();
+
+        element(by.binding("laggingSkill.description")).click();
+        browser.sleep(4000);
+
+        var botones_adicionales= element(by.binding("unsolvedProblem.description"));
+        browser.actions()
+            .mouseDown(botones_adicionales)
+            .mouseMove({x: -200, y: 0}) // try different value of x
+            .mouseUp()
+            .perform();
+        browser.sleep(3000);
+        element(by.id("more_button")).click();
+        browser.sleep(4000);
+        element(by.buttonText("Step 1: Empathy Step")).click();
+        browser.sleep(2000);
+
+
+    });
+
+    it('33 probar mensaje de ayuda en empathy step',function () {
+
+        element(by.id("child_selected")).click();
+        browser.sleep(5000);
+        element(by.id("laggingSkillsID")).click();
+
+        element(by.binding("laggingSkill.description")).click();
+        browser.sleep(4000);
+
+        var botones_adicionales= element(by.binding("unsolvedProblem.description"));
+        browser.actions()
+            .mouseDown(botones_adicionales)
+            .mouseMove({x: -200, y: 0}) // try different value of x
+            .mouseUp()
+            .perform();
+        browser.sleep(3000);
+        element(by.id("more_button")).click();
+        browser.sleep(4000);
+        element(by.buttonText("Step 1: Empathy Step")).click();
+        browser.sleep(2000);
+
+        expect(element(by.id("help_message")).getText()).toMatch("I've noticed that you've been having ");
+        expect(element(by.id("help_message")).getText()).toMatch("Unsolved Problem 2");
+        expect(element(by.id("help_message")).getText()).toMatch(", what's up?");
+    });
+
+    it('34 No se puede crear un nuevo Child Concern con el campo child concern vacio',function () {
+
+        element(by.id("child_selected")).click();
+        browser.sleep(5000);
+        element(by.id("laggingSkillsID")).click();
+
+        element(by.binding("laggingSkill.description")).click();
+        browser.sleep(4000);
+
+        var botones_adicionales= element(by.binding("unsolvedProblem.description"));
+        browser.actions()
+            .mouseDown(botones_adicionales)
+            .mouseMove({x: -200, y: 0}) // try different value of x
+            .mouseUp()
+            .perform();
+        browser.sleep(3000);
+        element(by.id("more_button")).click();
+        browser.sleep(4000);
+        element(by.buttonText("Step 1: Empathy Step")).click();
+        browser.sleep(2000);
+        element(by.className("watchlist_menu button button-small button-clear button-positive")).click();
+        var createButton = element(by.buttonText("Create"));
+
+        expect(createButton.isEnabled()).toBe(false);
+    });
+
+    it('35 Se puede cancelar la creacion de un nuevo child concern',function () {
+
+        element(by.id("child_selected")).click();
+        browser.sleep(5000);
+        element(by.id("laggingSkillsID")).click();
+
+        element(by.binding("laggingSkill.description")).click();
+        browser.sleep(4000);
+
+        var botones_adicionales= element(by.binding("unsolvedProblem.description"));
+        browser.actions()
+            .mouseDown(botones_adicionales)
+            .mouseMove({x: -200, y: 0}) // try different value of x
+            .mouseUp()
+            .perform();
+        browser.sleep(3000);
+        element(by.id("more_button")).click();
+        browser.sleep(4000);
+        element(by.buttonText("Step 1: Empathy Step")).click();
+        browser.sleep(2000);
+        element(by.className("watchlist_menu button button-small button-clear button-positive")).click();
+        var createButton = element(by.buttonText("Create"));
+        element(by.buttonText("Cancel")).click();
+
+        browser.sleep(1000);
+        expect(element(by.id("no_childs_message")).getText()).toBe("No child's concern registered. Please register one above.");
+    });
+
+    it('36 Crear un nuevo child concern',function () {
         element(by.id("child_selected")).click();
         browser.sleep(5000);
         element(by.id("laggingSkillsID")).click();
@@ -587,7 +637,7 @@ describe('Protractor Children Management', function() {
         expect(element(by.binding("childsConcern.description")).getText()).toBe("Child Concern 1");
     });
 
-    // it('35 Cuando se esta editando no se puede dejar el campo de Child concern vacio',function () {
+    // it('37 Cuando se esta editando no se puede dejar el campo de Child concern vacio',function () {
     //     element(by.id("child_selected")).click();
     //     browser.sleep(5000);
     //     element(by.id("laggingSkillsID")).click();
@@ -626,7 +676,7 @@ describe('Protractor Children Management', function() {
     //     expect(createButton.isEnabled()).toBe(false);
     // });
 
-    // it('36 Cuando se esta editando se debe poder cancelar y no persistira el cambio',function () {
+    // it('38 Cuando se esta editando se debe poder cancelar y no persistira el cambio',function () {
     //         element(by.id("child_selected")).click();
     //         browser.sleep(5000);
     //         element(by.id("laggingSkillsID")).click();
@@ -668,7 +718,7 @@ describe('Protractor Children Management', function() {
     //     });
 
 
-    it('37 Cuando se esta editando y en se guarda el cabio debe persistir',function () {
+    it('39 Cuando se esta editando y en se guarda el cabio debe persistir',function () {
         element(by.id("child_selected")).click();
         browser.sleep(5000);
         element(by.id("laggingSkillsID")).click();
@@ -705,12 +755,10 @@ describe('Protractor Children Management', function() {
         expect(element(by.binding("childsConcern.description")).getText()).toBe("Child Concern 1 EDITADO");
 
         browser.sleep(2000);
-
-
     });
 
 
-    // it('38 Al borrar cuando se visualiza el mensaje de confirmacion, se debe poder cancelar la eliminacion de un Child Concern',function () {
+    // it('40 Al borrar cuando se visualiza el mensaje de confirmacion, se debe poder cancelar la eliminacion de un Child Concern',function () {
     //         element(by.id("child_selected")).click();
     //         browser.sleep(5000);
     //         element(by.id("laggingSkillsID")).click();
@@ -748,7 +796,48 @@ describe('Protractor Children Management', function() {
     //         browser.sleep(2000);
     //     });
 
-    it('39 Al confirmar el mensaje de borrar child concern y aceptar, el child concern sera borrado', function () {
+    // it('41 Al confirmar el mensaje de borrar child concern y aceptar, el child concern sera borrado', function () {
+    //     element(by.id("child_selected")).click();
+    //     browser.sleep(5000);
+    //     element(by.id("laggingSkillsID")).click();
+    //
+    //     element(by.binding("laggingSkill.description")).click();
+    //     browser.sleep(4000);
+    //
+    //     var botones_adicionales= element(by.binding("unsolvedProblem.description"));
+    //     browser.actions()
+    //         .mouseDown(botones_adicionales)
+    //         .mouseMove({x: -200, y: 0}) // try different value of x
+    //         .mouseUp()
+    //         .perform();
+    //     browser.sleep(3000);
+    //     element(by.id("more_button")).click();
+    //     browser.sleep(4000);
+    //     element(by.buttonText("Step 1: Empathy Step")).click();
+    //     browser.sleep(2000);
+    //
+    //     var botones_adicionales=element(by.binding("childsConcern.description"));
+    //     browser.actions()
+    //         .mouseDown(botones_adicionales)
+    //         .mouseMove({x: -200, y: 0}) // try different value of x
+    //         .mouseUp()
+    //         .perform();
+    //     browser.sleep(2000);
+    //
+    //     element(by.buttonText("No, keep drilling")).click();
+    //     element(by.id("delete_button")).click();
+    //     browser.sleep(2000);
+    //     element(by.buttonText("OK")).click();
+    //     browser.sleep(2000);
+    //     expect(element(by.id("no_childs_message")).getText()).toBe("No child's concern registered. Please register one above.");
+    //     browser.sleep(2000);
+    //
+    //
+    // });
+
+
+
+    it('42 Cuando se desea pasar al step 2(Adult concern), se visualizara un mensaje',function () {
         element(by.id("child_selected")).click();
         browser.sleep(5000);
         element(by.id("laggingSkillsID")).click();
@@ -776,16 +865,55 @@ describe('Protractor Children Management', function() {
             .perform();
         browser.sleep(2000);
 
-        element(by.buttonText("No, keep drilling")).click();
-        element(by.id("delete_button")).click();
-        browser.sleep(2000);
-        element(by.buttonText("OK")).click();
-        browser.sleep(2000);
-        expect(element(by.id("no_childs_message")).getText()).toBe("No child's concern registered. Please register one above.");
-        browser.sleep(2000);
+        this.popupContainsHeaderText = function (text) {
+            this.popupShouldExist();
+            expect(this.popup.element(by.css('.popup-head')).getText()).toMatch("Have you drilled enough to get all your child's concerns?");
+        };
 
-
+        browser.sleep(2000);
     });
+
+
+    it('43 Cuando se desea pasar al step 2(Adult concern), se visualizara un mensaje',function () {
+        element(by.id("child_selected")).click();
+        browser.sleep(5000);
+        element(by.id("laggingSkillsID")).click();
+
+        element(by.binding("laggingSkill.description")).click();
+        browser.sleep(4000);
+
+        var botones_adicionales= element(by.binding("unsolvedProblem.description"));
+        browser.actions()
+            .mouseDown(botones_adicionales)
+            .mouseMove({x: -200, y: 0}) // try different value of x
+            .mouseUp()
+            .perform();
+        browser.sleep(3000);
+        element(by.id("more_button")).click();
+        browser.sleep(4000);
+        element(by.buttonText("Step 1: Empathy Step")).click();
+        browser.sleep(2000);
+
+        var botones_adicionales=element(by.binding("childsConcern.description"));
+        browser.actions()
+            .mouseDown(botones_adicionales)
+            .mouseMove({x: -200, y: 0}) // try different value of x
+            .mouseUp()
+            .perform();
+        browser.sleep(2000);
+
+        this.popupContainsHeaderText = function (text) {
+            this.popupShouldExist();
+            expect(this.popup.element(by.css('.popup-head')).getText()).toMatch("Have you drilled enough to get all your child's concerns?");
+        };
+
+        browser.sleep(2000);
+    });
+
+
+
+
+
 
 
 

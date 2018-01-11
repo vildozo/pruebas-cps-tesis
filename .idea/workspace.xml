@@ -43,8 +43,8 @@
       <file leaf-file-name="spec.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/spec.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="777" column="0" lean-forward="true" selection-start-line="777" selection-start-column="0" selection-end-line="777" selection-end-column="0" />
+            <state relative-caret-position="-641">
+              <caret line="876" column="10" lean-forward="false" selection-start-line="876" selection-start-column="10" selection-end-line="876" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -77,6 +77,7 @@
       <find>rep</find>
       <find>contai</find>
       <find>edi</find>
+      <find>pop</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -305,12 +306,12 @@
       <workItem from="1515378670216" duration="6133000" />
       <workItem from="1515547623088" duration="9644000" />
       <workItem from="1515581565486" duration="10266000" />
-      <workItem from="1515640886200" duration="12396000" />
+      <workItem from="1515640886200" duration="15193000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="190242000" />
+    <option name="totallyTimeSpent" value="193039000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -741,8 +742,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/spec.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="777" column="0" lean-forward="true" selection-start-line="777" selection-start-column="0" selection-end-line="777" selection-end-column="0" />
+        <state relative-caret-position="-641">
+          <caret line="876" column="10" lean-forward="false" selection-start-line="876" selection-start-column="10" selection-end-line="876" selection-end-column="10" />
           <folding />
         </state>
       </provider>
