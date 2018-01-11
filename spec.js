@@ -587,7 +587,7 @@ describe('Protractor Children Management', function() {
         expect(element(by.binding("childsConcern.description")).getText()).toBe("Child Concern 1");
     });
 
-    it('35 Cuando se esta editando se debe poder cancelar y no persistira el cambio',function () {
+    it('35 Cuando se esta editando no se puede dejar el campo de Child concern vacio',function () {
         element(by.id("child_selected")).click();
         browser.sleep(5000);
         element(by.id("laggingSkillsID")).click();
@@ -616,17 +616,58 @@ describe('Protractor Children Management', function() {
         browser.sleep(2000);
 
         element(by.buttonText("No, keep drilling")).click();
+        browser.sleep(2000)
         element(by.id("edit_button")).click();
         browser.sleep(2000);
-        element(by.model("editableChildsConcern.description")).clear().sendKeys("Child Concern 1 EDITADO");
+        element(by.model("editableChildsConcern.description")).clear().sendKeys("");
         browser.sleep(2000);
-        element(by.buttonText("Save")).click();
-        expect(element(by.binding("childsConcern.description")).getText()).toBe("Child Concern 1 EDITADO");
 
-        browser.sleep(2000);
+        var createButton = element(by.buttonText("Save"));
+        expect(createButton.isEnabled()).toBe(false);
 
 
     });
+    //
+    // it('36 Cuando se esta editando se debe poder cancelar y no persistira el cambio',function () {
+    //     element(by.id("child_selected")).click();
+    //     browser.sleep(5000);
+    //     element(by.id("laggingSkillsID")).click();
+    //
+    //     element(by.binding("laggingSkill.description")).click();
+    //     browser.sleep(4000);
+    //
+    //     var botones_adicionales= element(by.binding("unsolvedProblem.description"));
+    //     browser.actions()
+    //         .mouseDown(botones_adicionales)
+    //         .mouseMove({x: -200, y: 0}) // try different value of x
+    //         .mouseUp()
+    //         .perform();
+    //     browser.sleep(3000);
+    //     element(by.id("more_button")).click();
+    //     browser.sleep(4000);
+    //     element(by.buttonText("Step 1: Empathy Step")).click();
+    //     browser.sleep(2000);
+    //
+    //     var botones_adicionales=element(by.binding("childsConcern.description"));
+    //     browser.actions()
+    //         .mouseDown(botones_adicionales)
+    //         .mouseMove({x: -200, y: 0}) // try different value of x
+    //         .mouseUp()
+    //         .perform();
+    //     browser.sleep(2000);
+    //
+    //     element(by.buttonText("No, keep drilling")).click();
+    //     element(by.id("edit_button")).click();
+    //     browser.sleep(2000);
+    //     element(by.model("editableChildsConcern.description")).clear().sendKeys("Child Concern 1 EDITADO");
+    //     browser.sleep(2000);
+    //     element(by.buttonText("Save")).click();
+    //     expect(element(by.binding("childsConcern.description")).getText()).toBe("Child Concern 1 EDITADO");
+    //
+    //     browser.sleep(2000);
+    //
+    //
+    // });
 
 
 
