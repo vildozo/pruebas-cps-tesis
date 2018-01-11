@@ -710,45 +710,83 @@ describe('Protractor Children Management', function() {
     });
 
 
-    it('38 Al borrar cuando se visualiza el mensaje de confirmacion, se debe poder cancelar la eliminacion de un Child Concern',function () {
-            element(by.id("child_selected")).click();
-            browser.sleep(5000);
-            element(by.id("laggingSkillsID")).click();
+    // it('38 Al borrar cuando se visualiza el mensaje de confirmacion, se debe poder cancelar la eliminacion de un Child Concern',function () {
+    //         element(by.id("child_selected")).click();
+    //         browser.sleep(5000);
+    //         element(by.id("laggingSkillsID")).click();
+    //
+    //         element(by.binding("laggingSkill.description")).click();
+    //         browser.sleep(4000);
+    //
+    //         var botones_adicionales= element(by.binding("unsolvedProblem.description"));
+    //         browser.actions()
+    //             .mouseDown(botones_adicionales)
+    //             .mouseMove({x: -200, y: 0}) // try different value of x
+    //             .mouseUp()
+    //             .perform();
+    //         browser.sleep(3000);
+    //         element(by.id("more_button")).click();
+    //         browser.sleep(4000);
+    //         element(by.buttonText("Step 1: Empathy Step")).click();
+    //         browser.sleep(2000);
+    //
+    //         var botones_adicionales=element(by.binding("childsConcern.description"));
+    //         browser.actions()
+    //             .mouseDown(botones_adicionales)
+    //             .mouseMove({x: -200, y: 0}) // try different value of x
+    //             .mouseUp()
+    //             .perform();
+    //         browser.sleep(2000);
+    //
+    //         element(by.buttonText("No, keep drilling")).click();
+    //         element(by.id("delete_button")).click();
+    //         browser.sleep(2000);
+    //         element(by.buttonText("Cancel")).click();
+    //         browser.sleep(2000);
+    //         expect(element(by.binding("childsConcern.description")).getText()).toBe("Child Concern 1 EDITADO");
+    //
+    //         browser.sleep(2000);
+    //     });
 
-            element(by.binding("laggingSkill.description")).click();
-            browser.sleep(4000);
+    it('39 Al confirmar el mensaje de borrar child concern y aceptar, el child concern sera borrado', function () {
+        element(by.id("child_selected")).click();
+        browser.sleep(5000);
+        element(by.id("laggingSkillsID")).click();
 
-            var botones_adicionales= element(by.binding("unsolvedProblem.description"));
-            browser.actions()
-                .mouseDown(botones_adicionales)
-                .mouseMove({x: -200, y: 0}) // try different value of x
-                .mouseUp()
-                .perform();
-            browser.sleep(3000);
-            element(by.id("more_button")).click();
-            browser.sleep(4000);
-            element(by.buttonText("Step 1: Empathy Step")).click();
-            browser.sleep(2000);
+        element(by.binding("laggingSkill.description")).click();
+        browser.sleep(4000);
 
-            var botones_adicionales=element(by.binding("childsConcern.description"));
-            browser.actions()
-                .mouseDown(botones_adicionales)
-                .mouseMove({x: -200, y: 0}) // try different value of x
-                .mouseUp()
-                .perform();
-            browser.sleep(2000);
+        var botones_adicionales= element(by.binding("unsolvedProblem.description"));
+        browser.actions()
+            .mouseDown(botones_adicionales)
+            .mouseMove({x: -200, y: 0}) // try different value of x
+            .mouseUp()
+            .perform();
+        browser.sleep(3000);
+        element(by.id("more_button")).click();
+        browser.sleep(4000);
+        element(by.buttonText("Step 1: Empathy Step")).click();
+        browser.sleep(2000);
 
-            element(by.buttonText("No, keep drilling")).click();
-            element(by.id("delete_button")).click();
-            browser.sleep(2000);
-            element(by.buttonText("Cancel")).click();
-            browser.sleep(2000);
-            expect(element(by.binding("childsConcern.description")).getText()).toBe("Child Concern 1 EDITADO");
+        var botones_adicionales=element(by.binding("childsConcern.description"));
+        browser.actions()
+            .mouseDown(botones_adicionales)
+            .mouseMove({x: -200, y: 0}) // try different value of x
+            .mouseUp()
+            .perform();
+        browser.sleep(2000);
 
-            browser.sleep(2000);
+        element(by.buttonText("No, keep drilling")).click();
+        element(by.id("delete_button")).click();
+        browser.sleep(2000);
+        element(by.buttonText("OK")).click();
+        browser.sleep(2000);
+        expect(element(by.id("no_childs_message")).getText()).toBe("No child's concern registered. Please register one above.");
+        browser.sleep(2000);
 
 
-        });
+    });
+
 
 
 
