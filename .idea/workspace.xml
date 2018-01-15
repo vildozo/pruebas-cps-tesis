@@ -44,8 +44,8 @@
       <file leaf-file-name="spec.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/spec.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="541">
-              <caret line="984" column="67" lean-forward="false" selection-start-line="984" selection-start-column="67" selection-end-line="984" selection-end-column="67" />
+            <state relative-caret-position="547">
+              <caret line="1202" column="0" lean-forward="false" selection-start-line="1202" selection-start-column="0" selection-end-line="1236" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -126,6 +126,7 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -140,7 +141,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -309,12 +309,20 @@
       <workItem from="1515581565486" duration="10266000" />
       <workItem from="1515640886200" duration="19969000" />
       <workItem from="1515673787715" duration="819000" />
-      <workItem from="1515725195211" duration="4624000" />
+      <workItem from="1515725195211" duration="9215000" />
+      <workItem from="1515756096516" duration="1286000" />
+      <workItem from="1515757560165" duration="45000" />
+      <workItem from="1515759701278" duration="1016000" />
+      <workItem from="1515809328004" duration="2482000" />
+      <workItem from="1515840215376" duration="697000" />
+      <workItem from="1515900625894" duration="897000" />
+      <workItem from="1515903958321" duration="371000" />
+      <workItem from="1515968713305" duration="4327000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="203258000" />
+    <option name="totallyTimeSpent" value="218970000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -358,22 +366,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="770">
-          <caret line="35" column="34" lean-forward="false" selection-start-line="35" selection-start-column="34" selection-end-line="35" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/conf.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
@@ -743,10 +735,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/AppData/Roaming/npm/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-41297">
+          <caret line="1375" column="13" lean-forward="false" selection-start-line="1375" selection-start-column="13" selection-end-line="1375" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Roaming/npm/node_modules/protractor/built/element.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="813" column="26" lean-forward="false" selection-start-line="813" selection-start-column="26" selection-end-line="813" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/spec.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="541">
-          <caret line="984" column="67" lean-forward="false" selection-start-line="984" selection-start-column="67" selection-end-line="984" selection-end-column="67" />
+        <state relative-caret-position="547">
+          <caret line="1202" column="0" lean-forward="false" selection-start-line="1202" selection-start-column="0" selection-end-line="1236" selection-end-column="7" />
           <folding />
         </state>
       </provider>
