@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4aa29117-ea1d-4cc4-b907-e0f716bdb37e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/debug.log" afterPath="$PROJECT_DIR$/debug.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec.js" afterPath="$PROJECT_DIR$/spec.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -44,8 +45,8 @@
       <file leaf-file-name="spec.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/spec.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="547">
-              <caret line="1202" column="0" lean-forward="false" selection-start-line="1202" selection-start-column="0" selection-end-line="1236" selection-end-column="7" />
+            <state relative-caret-position="500">
+              <caret line="572" column="54" lean-forward="false" selection-start-line="572" selection-start-column="54" selection-end-line="572" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -79,6 +80,8 @@
       <find>contai</find>
       <find>edi</find>
       <find>pop</find>
+      <find>despl</find>
+      <find>browser.get(</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -125,7 +128,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -141,6 +143,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -317,12 +320,22 @@
       <workItem from="1515840215376" duration="697000" />
       <workItem from="1515900625894" duration="897000" />
       <workItem from="1515903958321" duration="371000" />
-      <workItem from="1515968713305" duration="4327000" />
+      <workItem from="1515968713305" duration="6898000" />
+      <workItem from="1516011138843" duration="5416000" />
+      <workItem from="1516019209556" duration="1411000" />
+      <workItem from="1516041471153" duration="5439000" />
+      <workItem from="1516138235767" duration="24694000" />
+      <workItem from="1516189587506" duration="3870000" />
+      <workItem from="1516193668592" duration="872000" />
+      <workItem from="1516194690372" duration="1741000" />
+      <workItem from="1516196981413" duration="681000" />
+      <workItem from="1516206576821" duration="9910000" />
+      <workItem from="1516220401702" duration="4913000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="218970000" />
+    <option name="totallyTimeSpent" value="280488000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -751,8 +764,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/spec.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="547">
-          <caret line="1202" column="0" lean-forward="false" selection-start-line="1202" selection-start-column="0" selection-end-line="1236" selection-end-column="7" />
+        <state relative-caret-position="500">
+          <caret line="572" column="54" lean-forward="false" selection-start-line="572" selection-start-column="54" selection-end-line="572" selection-end-column="54" />
           <folding />
         </state>
       </provider>
