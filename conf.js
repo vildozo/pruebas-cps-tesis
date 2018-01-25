@@ -19,6 +19,7 @@ exports.config = {
   specs: ['spec.js'],
 
     jasmineNodeOpts:{
+      showColors: true,
       defaultTimeoutInterval: 45000
     }
 }
