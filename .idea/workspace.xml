@@ -48,8 +48,8 @@
       <file leaf-file-name="spec.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/spec.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="883" column="3" lean-forward="false" selection-start-line="883" selection-start-column="3" selection-end-line="883" selection-end-column="3" />
+            <state relative-caret-position="401">
+              <caret line="915" column="7" lean-forward="false" selection-start-line="906" selection-start-column="4" selection-end-line="915" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -133,6 +133,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -147,8 +149,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -368,12 +368,16 @@
       <workItem from="1516993333613" duration="1305000" />
       <workItem from="1516998814648" duration="14594000" />
       <workItem from="1517060284551" duration="992000" />
-      <workItem from="1517091741532" duration="16614000" />
+      <workItem from="1517091741532" duration="18855000" />
+      <workItem from="1517180978043" duration="1571000" />
+      <workItem from="1517274740880" duration="821000" />
+      <workItem from="1517349866915" duration="599000" />
+      <workItem from="1517389045291" duration="1965000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="427371000" />
+    <option name="totallyTimeSpent" value="434568000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -802,8 +806,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/spec.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="883" column="3" lean-forward="false" selection-start-line="883" selection-start-column="3" selection-end-line="883" selection-end-column="3" />
+        <state relative-caret-position="401">
+          <caret line="915" column="7" lean-forward="false" selection-start-line="906" selection-start-column="4" selection-end-line="915" selection-end-column="7" />
           <folding />
         </state>
       </provider>

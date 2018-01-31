@@ -846,6 +846,7 @@ describe('Protractor Children Management', function() {
         element(by.id("comment_button")).click();
         sleep(2);
         expect(browser.getTitle()).toBe("Solution's Info");
+        expect(element(by.tagName("p")).getText()).toBe("No comments registered. Please register one above.");
     });
 
     it('69 No se puede crear un comment vacio',function () {
@@ -881,17 +882,40 @@ describe('Protractor Children Management', function() {
         expect(createButton.isEnabled()).toBe(false);
     });
 
-   
-
-
 
     it('74 al editar Un comment', function () {
 
         element(by.model("editableComment.description")).clear().sendKeys("First Comment EDITED");
         element(by.buttonText("Save")).click();
         expect(element(by.binding("item.description")).getText()).toContain("First Comment EDITED");
+    });
+
+    it('76 Se puede cancelar cuando se esta borrando un comment', function () {
+        var comment = element(by.binding("item.description"));
+        desplazarElemento(-200,0,comment);
+        sleep(2);
+        element(by.className("button button-assertive ion-trash-a")).click();
+        sleep(2);
+        element(by.className("button ng-binding button-default")).click();
+        sleep(2);
+        expect(element(by.binding("item.description")).getText()).toContain("First Comment EDITED");
 
     });
+
+
+
+    it('77 Se puede borrar un comment', function () {
+        var comment = element(by.binding("item.description"));
+        desplazarElemento(-200,0,comment);
+        sleep(1);
+        element(by.className("button button-assertive ion-trash-a")).click();
+        sleep(1);
+        element(by.buttonText("OK")).click();
+        sleep(1);
+        expect(element(by.tagName("p")).getText()).toBe("No comments registered. Please register one above.");
+    });
+
+
 
 
 
