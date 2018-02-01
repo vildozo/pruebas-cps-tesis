@@ -584,11 +584,7 @@ describe('Protractor Children Management', function() {
     //     browser.sleep(2000);
     // });
 
-
-// //===================================A D U L T ' S      C O N C E R N ==============================================
-// //
-// //
-//     it('42 Al visualizar mensaje si se desea pasar a Adults concern se puede cancelar',function () {
+    //     it('42 Al visualizar mensaje si se desea pasar a Adults concern se puede cancelar',function () {
 //         browser.sleep(2000);
 //         var botones_adicionalesCC=element(by.binding("childsConcern.description"));
 //         desplazarElemento(-200,0,botones_adicionalesCC);
@@ -598,6 +594,12 @@ describe('Protractor Children Management', function() {
 //
 //         expect(browser.getTitle()).toEqual('Empathy Step');
 //     });
+
+
+// //===================================A D U L T ' S      C O N C E R N ==============================================
+// //
+// //
+
 
     it('43 Pasar de empathy step a adults concerns',function () {
         browser.sleep(2000);
@@ -663,14 +665,18 @@ describe('Protractor Children Management', function() {
         desplazarElemento(-200,0,ac);
         expect(browser.getTitle()).toBe("Invitation Step");
     });
+
+    // it("49 en el invitation step se tiene que visualizar el unsolved problema",function () {
+    //     expect(element(by.binding("unsolvedProblem.description")).getText()).toBe("Unsolved Problem 2");
+    // });
     //
-    //  it('49 Visualizar child concern con mayor prioridad y Primer Adult adult concern',function () {
+    //  it('50 Visualizar child concern con mayor prioridad y Primer Adult adult concern',function () {
     //      expect(element(by.binding("childsConcerns[0].description")).getText()).toBe("Child Concern 1");
     //      expect(element(by.binding("adultsConcerns[0].description")).getText()).toBe("Adult Concern First");
     //  });
     //
     //
-    // it('50 Expandir Child Concerns',function () {
+    // it('51 Expandir Child Concerns',function () {
     //     element(by.id("expand_childs_concern")).click();
     //     sleep(2);
     //     element.all(by.binding("childConcern.description")).then(function (items) {
@@ -681,7 +687,7 @@ describe('Protractor Children Management', function() {
     //     sleep(2);
     // });
     //
-    // it('51 Expandir Adult Concerns',function () {
+    // it('52 Expandir Adult Concerns',function () {
     //     element(by.id("expand_adults_concern")).click();
     //     sleep(2);
     //     element.all(by.binding("adultConcern.description")).then(function (items) {
@@ -692,28 +698,28 @@ describe('Protractor Children Management', function() {
     //     sleep(2);
     // });
     //
-    // it('52 Contraer Child Concerns',function () {
+    // it('53 Contraer Child Concerns',function () {
     //     element(by.id("expand_childs_concern")).click();
     //     sleep(2);
     //     expect(element(by.binding("childsConcerns[0].description")).getText()).toBe("Child Concern 1");
     //     sleep(2);
     // });
     //
-    // it('53 Contraer Adult Concerns',function () {
+    // it('54 Contraer Adult Concerns',function () {
     //     element(by.id("expand_adults_concern")).click();
     //     sleep(2);
     //     expect(element(by.binding("adultsConcerns[0].description")).getText()).toBe("Adult Concern First");
     //     sleep(2);
     // });
 
-    // it('54 no se puede crear un Possible solution con los campos vacios',function () {
+    // it('55 no se puede crear un Possible solution con los campos vacios',function () {
     //     element(by.className("watchlist_menu button button-small button-clear button-positive")).click();
     //     var createButton = element(by.buttonText("Create"));
     //
     //     expect(createButton.isEnabled()).toBe(false);
     // });
     //
-    // it('55 Se debe poder cancelar la creacion de un possible Solution',function () {
+    // it('56 Se debe poder cancelar la creacion de un possible Solution',function () {
     //     var createButton = element(by.buttonText("Cancel")).click();
     //     browser.sleep(2000);
     //
@@ -721,7 +727,7 @@ describe('Protractor Children Management', function() {
     //
     // });
     //
-    // it('56 Crear un possible solution',function () {
+    // it('57 Crear un possible solution',function () {
     //     element(by.className("watchlist_menu button button-small button-clear button-positive")).click();
     //     element(by.tagName("textarea")).sendKeys("First Possible Solution");
     //     element(by.buttonText("Create")).click();
@@ -730,7 +736,7 @@ describe('Protractor Children Management', function() {
     //
     // });
     //
-    // it("57 Cuando se esta editando no se pueden dejar los campos en blanco",function () {
+    // it("58 Cuando se esta editando no se pueden dejar los campos en blanco",function () {
     //    var possible_solution =  element(by.binding("solution.description"));
     //     desplazarElemento(-200,0,possible_solution);
     //     browser.sleep(2000);
@@ -741,7 +747,7 @@ describe('Protractor Children Management', function() {
     //     browser.sleep(1000);
     // });
     //
-    // it("58 eDITAR UNSOLVED PROBLEMS",function () {
+    // it("59 eDITAR UNSOLVED PROBLEMS",function () {
     //     element(by.model("editableSolution.description")).clear().sendKeys("First Possible Solution EDITADO");
     //     element(by.buttonText("Save")).click();
     //     browser.sleep(3000);
@@ -751,28 +757,28 @@ describe('Protractor Children Management', function() {
     // });
     //
     //
-    // it('59 del Invitation Step se puede hacer usar los botones de navegacion e ir al Empathy Step',function () {
+    // it('60 del Invitation Step se puede hacer usar los botones de navegacion e ir al Empathy Step',function () {
     //     element(by.className("icon step1")).click();
     //     browser.sleep(2000);
     //     expect(browser.getTitle()).toBe("Empathy Step");
     //     browser.sleep(1000);
     // });
     //
-    // it('60 del Empathy  Step se puede hacer usar los botones de navegacion e ir al Invitation Step',function () {
+    // it('61 del Empathy  Step se puede hacer usar los botones de navegacion e ir al Invitation Step',function () {
     //     element(by.className("icon step3")).click();
     //     browser.sleep(2000);
     //     expect(browser.getTitle()).toBe("Invitation Step");
     //     browser.sleep(1000);
     // });
     //
-    // it('61 del Invitation Step se puede hacer usar los botones de navegacion e ir al Adults Concern Step',function () {
+    // it('62 del Invitation Step se puede hacer usar los botones de navegacion e ir al Adults Concern Step',function () {
     //     element(by.className("icon step2")).click();
     //     browser.sleep(2000);
     //     expect(browser.getTitle()).toBe("Define Adult's Concern");
     //     browser.sleep(1000);
     // });
     //
-    // it('62 del Define Adults Concern Step se puede hacer usar los botones de navegacion e ir al Empathy Step',function () {
+    // it('63 del Define Adults Concern Step se puede hacer usar los botones de navegacion e ir al Empathy Step',function () {
     //     element(by.className("icon step1")).click();
     //     browser.sleep(2000);
     //     expect(browser.getTitle()).toBe("Empathy Step");
@@ -780,14 +786,14 @@ describe('Protractor Children Management', function() {
     // });
     //
     //
-    // it('63 de Empathy Step se puede hacer usar los botones de navegacion e ir a Define the Adults concern Step',function () {
+    // it('64 de Empathy Step se puede hacer usar los botones de navegacion e ir a Define the Adults concern Step',function () {
     //     element(by.className("icon step2")).click();
     //     browser.sleep(2000);
     //     expect(browser.getTitle()).toBe("Define Adult's Concern");
     //     browser.sleep(1000);
     // });
     //
-    // it('64 de Define de Adults Concern Step se puede hacer usar los botones de navegacion e ir a Invitation Step',function () {
+    // it('65 de Define de Adults Concern Step se puede hacer usar los botones de navegacion e ir a Invitation Step',function () {
     //     element(by.className("icon step3")).click();
     //     browser.sleep(2000);
     //     expect(browser.getTitle()).toBe("Invitation Step");
@@ -796,7 +802,7 @@ describe('Protractor Children Management', function() {
     //
     //
     //
-    // it('65 Se debe poder cancelar en mensaje de advertencia al querer borrar un possible solution', function () {
+    // it('66 Se debe poder cancelar en mensaje de advertencia al querer borrar un possible solution', function () {
     //     var possible_solution =  element(by.binding("solution.description"));
     //     desplazarElemento(-200,0,possible_solution);
     //     browser.sleep(2000);
@@ -808,7 +814,7 @@ describe('Protractor Children Management', function() {
     //     browser.sleep(5000);
     // });
     //
-    // it('66 borrar un possible solution', function () {
+    // it('67 borrar un possible solution', function () {
     //     var possible_solution =  element(by.binding("solution.description"));
     //     desplazarElemento(-200,0,possible_solution);
     //     browser.sleep(2000);
@@ -819,7 +825,7 @@ describe('Protractor Children Management', function() {
     //     expect(element(by.id("message")).getText()).toBe("No possible solutions registered. Please register one above, once you agree upon a solution.")
     // });
     //
-    it('67 Crear dos possible solution',function () {
+    it('68 Crear dos possible solution',function () {
         element(by.className("watchlist_menu button button-small button-clear button-positive")).click();
         element(by.tagName("textarea")).sendKeys("First Possible Solution");
         element(by.buttonText("Create")).click();
@@ -839,7 +845,7 @@ describe('Protractor Children Management', function() {
 
 
     //===================================C O M E N T S==================================================================
-    it('68 Ir a la vista de Coments',function () {
+    it('69 Ir a la vista de Coments',function () {
         var possible_solution =  element(by.binding("solution.description"));
         desplazarElemento(-200,0,possible_solution);
         sleep(3);
@@ -849,21 +855,21 @@ describe('Protractor Children Management', function() {
         expect(element(by.tagName("p")).getText()).toBe("No comments registered. Please register one above.");
     });
 
-    it('69 No se puede crear un comment vacio',function () {
+    it('70 No se puede crear un comment vacio',function () {
         element(by.className("icon ion-plus")).click();
         var createButton = element(by.buttonText("Create"));
         expect(createButton.isEnabled()).toBe(false);
         sleep(2);
     });
 
-    it('70 Se puede cancelar la creacion de un comment', function () {
+    it('71 Se puede cancelar la creacion de un comment', function () {
         element(by.tagName("textarea")).sendKeys("First Comment");
         element(by.buttonText("Cancel")).click();
         sleep(1);
         expect(element(by.tagName("p")).getText()).toBe("No comments registered. Please register one above.");
     });
 
-    it('71 crear un comment ',function () {
+    it('72 crear un comment ',function () {
         element(by.className("icon ion-plus")).click();
         element(by.tagName("textarea")).sendKeys("First Comment");
         element(by.buttonText("Create")).click();
@@ -883,14 +889,14 @@ describe('Protractor Children Management', function() {
     });
 
 
-    it('74 al editar Un comment', function () {
+    it('73 al editar Un comment', function () {
 
         element(by.model("editableComment.description")).clear().sendKeys("First Comment EDITED");
         element(by.buttonText("Save")).click();
         expect(element(by.binding("item.description")).getText()).toContain("First Comment EDITED");
     });
 
-    it('76 Se puede cancelar cuando se esta borrando un comment', function () {
+    it('74 Se puede cancelar cuando se esta borrando un comment', function () {
         var comment = element(by.binding("item.description"));
         desplazarElemento(-200,0,comment);
         sleep(2);
@@ -904,7 +910,7 @@ describe('Protractor Children Management', function() {
 
 
 
-    it('77 Se puede borrar un comment', function () {
+    it('75 Se puede borrar un comment', function () {
         var comment = element(by.binding("item.description"));
         desplazarElemento(-200,0,comment);
         sleep(1);
@@ -915,6 +921,13 @@ describe('Protractor Children Management', function() {
         expect(element(by.tagName("p")).getText()).toBe("No comments registered. Please register one above.");
     });
 
+    it('76 Se debe volver de los comments al invitation step', function () {
+       //element(by.className("button back-button buttons button-clear header-item")).click();
+        browser.navigate().back();
+        sleep(2);
+        expect(browser.getTitle()).toBe("Invitation Step");
+    });
+
 
 
 
@@ -923,7 +936,7 @@ describe('Protractor Children Management', function() {
 
 //============================R A T E      A N     P O S S I B L E     S O L U T I O N=================================
 
-    // it("68 Asignarle un Rate triste al primer  possible solution",function () {
+    // it("77 Asignarle un Rate triste al primer  possible solution",function () {
     //     element.all(by.className("icon ion-star")).then(function (solution) {
     //         var radio_button = element(by.className("icon ion-android-radio-button-off"));
     //         expect(radio_button.isPresent()).toBeTruthy();
@@ -944,7 +957,7 @@ describe('Protractor Children Management', function() {
     // });
     //
     //
-    // it("69 Asignarle un Rate triste al segundo  possible solution",function () {
+    // it("78 Asignarle un Rate triste al segundo  possible solution",function () {
     //     element.all(by.className("icon ion-star")).then(function (solution) {
     //         var radio_button = element(by.className("icon ion-android-radio-button-off"));
     //         expect(radio_button.isPresent()).toBeTruthy();
@@ -967,7 +980,7 @@ describe('Protractor Children Management', function() {
     //
     //
     //
-    // it("70 Mostrar en unsolved problem el mejor rating",function () {
+    // it("79 Mostrar en unsolved problem el mejor rating",function () {
     //     element(by.className("button button-icon button-clear ion-navicon")).click();
     //     sleep(1);
     //     element.all(by.className("item item-icon-left")).then(function (items) {
@@ -985,130 +998,27 @@ describe('Protractor Children Management', function() {
     //     });
     // });
 
+//================================T O U R S=============================================================================
 
 
+    it('80 Entrar a la pagina principal de Tours',function () {
+        element(by.className("button button-icon button-clear ion-navicon")).click();
+        sleep(2);
+        element.all(by.className("item item-icon-left")).then(function (items) {
+            items[6].click();
+            sleep(2);
+        });
+        expect(browser.getTitle()).toBe("Tours");
+    });
 
+    
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // it("62 en el invitation step se tiene que visualizar el unsolved problema",function () {
-    //    expect(element(by.binding("unsolvedProblem.description")).getText()).toBe("Unsolved Problem 2");
-    //   // expect(element(by.binding("childsConcerns.description"))).toBe("Child Concern 1");
-    //
-    //   // element.all(by.binding("childsConcerns.description")).then(function (items) {
-    //   //     console.log("==================================================================================================");
-    //   //     console.log(items.length);
-    //   // })
-    //     console.log("---------------------------------------------------------------------------------------------");
-    //     expect(element(by.repeater("childConcern in childsConcerns")).getText()).toBe("Child Concern 1");
-    // });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//
-//
-//
-//
-//     it('48 pasar de empathy step a adult concern',function () {
-//         browser.get('http://localhost:8100');
-//         element(by.id("child_selected")).click();
-//         browser.sleep(5000);
-//         element(by.id("laggingSkillsID")).click();
-//
-//         element(by.binding("laggingSkill.description")).click();
-//         browser.sleep(4000);
-//
-//         var botones_adicionales= element(by.binding("unsolvedProblem.description"));
-//         browser.actions()
-//             .mouseDown(botones_adicionales)
-//             .mouseMove({x: -200, y: 0}) // try different value of x
-//             .mouseUp()
-//             .perform();
-//         browser.sleep(3000);
-//         element(by.id("more_button")).click();
-//         browser.sleep(4000);
-//         element(by.buttonText("Step 1: Empathy Step")).click();
-//         browser.sleep(2000);
-//
-//         var botones_adicionales=element(by.binding("childsConcern.description"));
-//         browser.actions()
-//             .mouseDown(botones_adicionales)
-//             .mouseMove({x: -200, y: 0}) // try different value of x
-//             .mouseUp()
-//             .perform();
-//         browser.sleep(2000);
-//
-//         //element(by.buttonText("Yes, I'm sure")).click();
-//         //browser.sleep(8000);
-//
-//         element.all(by.className("item item-divider")).then(function (items) {
-//             console.log("===========================================================");
-//             console.log(items[0].getText());
-//             console.log(items[1].getText());
-//             expect(items[0].getText()).toBe("My worry is..")
-//         })
-//     });
-//
-//     // it('49 no se puede crear un  pasar de empathy step a adult concern',function () {
-//     //     browser.get('http://localhost:8100/#/app/invitation');
-//     //     var botones_adicionales= element(by.binding("unsolvedProblem.description"));
-//     //         browser.actions()
-//     //             .mouseDown(botones_adicionales)
-//     //             .mouseMove({x: -200, y: 0}) // try different value of x
-//     //             .mouseUp()
-//     //             .perform();
-//     //         browser.sleep(2000);
-//     //     expect(browser.getTitle()).toBe("Invitation Step");
-//     // });
-//
-
-
-
-
-
-    //
-    // it("Cuando se desea pasar al siguiente Step se debe visualizar un mensaje ''",function () {
-    //
-    //     var botones_adicionales=element(by.binding("childsConcern.description"));
-    //     desplazarElemento(-200,0,botones_adicionales);
-    //     browser.sleep(2000);
-    //     expect(this.popup.element(by.css('.popup-head')).getText()).toMatch("Please insert a date prior to today");
-    //     element(by.buttonText("No, keep drilling")).click();
-    //
+    // it("81 Ingresar a la vista de bienvenida  'How to use unsolved problems'",function () {
+    //     element.all(by.className("item item-text-wrap item-thumbnail-left")).then(function (items) {
+    //         items[0].click();
+    //         sleep(2);
+    //         expect(element(by.tagName("h3"))).toBe("Welcome to the Unsolved Problems!");
+    //     });
     // });
 
 
