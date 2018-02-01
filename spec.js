@@ -117,7 +117,6 @@ describe('Protractor Children Management', function() {
 //         var mypic = element(by.css("img[src*='girl.png']"));
 //         expect(mypic.isPresent()).toBe(true);
 // //        logger.log('info','7 Edit a Child');
-//
 //     });
 //
 //
@@ -132,7 +131,6 @@ describe('Protractor Children Management', function() {
 //             expect(text).toMatch("Lisa");
 //         });
 // //        logger.log('info','8 You can Cancel in windows in order to not delete a Child');
-//
 //     });
 //
 //
@@ -145,7 +143,6 @@ describe('Protractor Children Management', function() {
 //         browser.sleep(1000);
 //
 //         expect(element(by.id('NoChildRegistered')).getText()).toEqual("PLEASE REGISTER ONE ABOVE");
-//
 // //        logger.log('info','9 Delete a Child');
 //     });
 
@@ -178,7 +175,6 @@ describe('Protractor Children Management', function() {
        expect(element(by.tagName('h2')).getText()).toBe('ALSUP');
        expect(element(by.id("laggingSkillsID")).getText()).toBe('Lagging Skills');
        expect(element(by.id("unsolvedProblemsID")).getText()).toBe('Unsolved Problems');
-
     });
 // //======================================A L S U P=======================================================================
 
@@ -877,7 +873,7 @@ describe('Protractor Children Management', function() {
         expect(element(by.binding("item.description")).getText()).toContain("First Comment");
     });
 
-    it('72 al editar no se puede dejar los campos vacios', function () {
+    it('73 al editar no se puede dejar los campos vacios', function () {
         var comment = element(by.binding("item.description"));
         desplazarElemento(-200,0,comment);
         sleep(1);
@@ -889,14 +885,14 @@ describe('Protractor Children Management', function() {
     });
 
 
-    it('73 al editar Un comment', function () {
+    it('74 al editar Un comment', function () {
 
         element(by.model("editableComment.description")).clear().sendKeys("First Comment EDITED");
         element(by.buttonText("Save")).click();
         expect(element(by.binding("item.description")).getText()).toContain("First Comment EDITED");
     });
 
-    it('74 Se puede cancelar cuando se esta borrando un comment', function () {
+    it('75 Se puede cancelar cuando se esta borrando un comment', function () {
         var comment = element(by.binding("item.description"));
         desplazarElemento(-200,0,comment);
         sleep(2);
@@ -910,7 +906,7 @@ describe('Protractor Children Management', function() {
 
 
 
-    it('75 Se puede borrar un comment', function () {
+    it('76 Se puede borrar un comment', function () {
         var comment = element(by.binding("item.description"));
         desplazarElemento(-200,0,comment);
         sleep(1);
@@ -921,7 +917,7 @@ describe('Protractor Children Management', function() {
         expect(element(by.tagName("p")).getText()).toBe("No comments registered. Please register one above.");
     });
 
-    it('76 Se debe volver de los comments al invitation step', function () {
+    it('77 Se debe volver de los comments al invitation step', function () {
        //element(by.className("button back-button buttons button-clear header-item")).click();
         browser.navigate().back();
         sleep(2);
@@ -936,7 +932,7 @@ describe('Protractor Children Management', function() {
 
 //============================R A T E      A N     P O S S I B L E     S O L U T I O N=================================
 
-    // it("77 Asignarle un Rate triste al primer  possible solution",function () {
+    // it("78 Asignarle un Rate triste al primer  possible solution",function () {
     //     element.all(by.className("icon ion-star")).then(function (solution) {
     //         var radio_button = element(by.className("icon ion-android-radio-button-off"));
     //         expect(radio_button.isPresent()).toBeTruthy();
@@ -957,7 +953,7 @@ describe('Protractor Children Management', function() {
     // });
     //
     //
-    // it("78 Asignarle un Rate triste al segundo  possible solution",function () {
+    // it("79 Asignarle un Rate triste al segundo  possible solution",function () {
     //     element.all(by.className("icon ion-star")).then(function (solution) {
     //         var radio_button = element(by.className("icon ion-android-radio-button-off"));
     //         expect(radio_button.isPresent()).toBeTruthy();
@@ -1011,15 +1007,21 @@ describe('Protractor Children Management', function() {
         expect(browser.getTitle()).toBe("Tours");
     });
 
-    
 
-    // it("81 Ingresar a la vista de bienvenida  'How to use unsolved problems'",function () {
-    //     element.all(by.className("item item-text-wrap item-thumbnail-left")).then(function (items) {
-    //         items[0].click();
-    //         sleep(2);
-    //         expect(element(by.tagName("h3"))).toBe("Welcome to the Unsolved Problems!");
-    //     });
-    // });
+
+    it("81 Ingresar a la vista de bienvenida  'How to use unsolved problems'",function () {
+        element.all(by.className("item item-text-wrap item-thumbnail-left")).then(function (items) {
+            items[0].click();
+            sleep(8);
+            expect(element(by.tagName("h3")).getText()).toBe("Welcome to the Unsolved Problems!");
+
+            element.all(by.tagName("p")).then(function (items) {
+                expect(items[0].getText()).toBe("Once you have selected a Lagging Skill you can create an Unsolved Problem.");
+                expect(items[1].getText()).toBe("Now we are going to show you how you can do it.");
+            });
+        });
+
+    });
 
 
 
