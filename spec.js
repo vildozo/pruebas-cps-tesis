@@ -34,7 +34,7 @@ describe('Protractor Children Management', function() {
 
   beforeEach(function() {
 
-      //browser.driver.manage().window().setSize(750, 800);
+      browser.driver.manage().window().setSize(750, 800);
   });
 
 
@@ -46,7 +46,6 @@ describe('Protractor Children Management', function() {
    });
 
   it('2 No Child registered message', function() {
-
         expect(element(by.id('NoChildRegistered')).getText()).toEqual("PLEASE REGISTER ONE ABOVE");
 //        logger.log('info','2 No Child registered');
   });
@@ -75,26 +74,22 @@ describe('Protractor Children Management', function() {
     });
 
     it('5 Cancel option when registeringa a "New Child" ', function() {
-        browser.get('http://localhost:8100');
-        addAChild.click();
-        titleModalNewChild = element(by.id('head_New_Child'));
+        browser.driver.switchTo().activeElement();
+        element(by.buttonText("OK")).click();
+        var titleModalNewChild = element(by.id('head_New_Child'));
         expect(titleModalNewChild.getText()).toEqual("New Child");
         element(by.buttonText("Cancel")).click();
-        browser.sleep(2000);
 
         expect(browser.getTitle()).toEqual('Manage Children');
 //        logger.log('info','5 Cancel option when registeringa a "New Child');
     });
 
       it('6 Add first Child', function() {
-          browser.get('http://localhost:8100');
         addAChild.click();
-        var childsNameInput = element(by.id('childs_name'));
         element(by.model("child.first_name")).sendKeys("Javier Vildozo");
         element(by.model("child.birthday")).sendKeys("06/22/1981");
         element(by.model("child.gender")).element(by.css("[value='Male']")).click();
         element(by.buttonText("Create")).click();
-        browser.sleep(1000);
 
         element(by.repeater("child in childs")).getText().then(function (text) {
 
@@ -109,7 +104,8 @@ describe('Protractor Children Management', function() {
     });
 
     it('7 Edit a Child', function() {
-        var moreButton= element(by.id('moreButton'));
+        // var moreButton= element(by.id('moreButton'));
+        var moreButton= element(by.className("col col-50 button button-small button-calm"));
         moreButton.click();
         element(by.buttonText("Edit child")).click();
         element(by.model("editableChild.first_name")).clear().sendKeys("Lisa");
@@ -126,11 +122,12 @@ describe('Protractor Children Management', function() {
 
 
     it('8 You can Cancel in windows in order to not delete a Child', function() {
-        browser.get('http://localhost:8100');
+        // browser.get('http://localhost:8100');
         var moreButton= element(by.id('moreButton'));
         moreButton.click();
         element(by.buttonText("Delete child")).click();
-        element(by.buttonText("Cancel")).click();
+        browser.driver.switchTo().activeElement();
+        element(by.className("button ng-binding button-default")).click();
         element(by.repeater("child in childs")).getText().then(function (text) {
 
             expect(text).toMatch("Lisa");
@@ -143,9 +140,7 @@ describe('Protractor Children Management', function() {
         var moreButton= element(by.id('moreButton'));
         moreButton.click();
         element(by.buttonText("Delete child")).click();
-        browser.sleep(1000);
         element(by.buttonText("OK")).click();
-        browser.sleep(1000);
 
         expect(element(by.id('NoChildRegistered')).getText()).toEqual("PLEASE REGISTER ONE ABOVE");
 //        logger.log('info','9 Delete a Child');
@@ -160,7 +155,6 @@ describe('Protractor Children Management', function() {
           element(by.model("child.gender")).element(by.css("[value='Female']")).click();
           element(by.model("child.birthday")).sendKeys("04/12/1980");
           element(by.buttonText("Create")).click();
-          browser.sleep(4000);
 
         element(by.repeater("child in childs")).getText().then(function (text) {
 
@@ -175,7 +169,6 @@ describe('Protractor Children Management', function() {
 
     it('11 Acceder a ALSUP de un Child y visualizar botones de lagging Skills y unsolved problem', function () {
        element(by.id("child_selected")).click();
-       browser.sleep(2000);
 
        expect(element(by.tagName('h2')).getText()).toBe('ALSUP');
        expect(element(by.id("laggingSkillsID")).getText()).toBe('Lagging Skills');
@@ -202,7 +195,7 @@ describe('Protractor Children Management', function() {
         var marcado = element(by.className("positive ng-binding"));
         desplazarElemento(-200,0,marcado);
         element(by.className("button-dark ion-close")).click();
-        browser.sleep(3000);
+        browser.sleep(2000);
         element.all(by.binding("laggingSkill.description")).then(function (items) {
 
             expect(items[0].getCssValue('color')).toBe('rgba(68, 68, 68, 1)');
@@ -213,7 +206,7 @@ describe('Protractor Children Management', function() {
         element.all(by.binding("laggingSkill.description")).then(function (items) {
             items[0].click();
         });
-        browser.sleep(4000);
+        browser.sleep(2000);
 
         expect(element(by.tagName('b')).getText()).toBe('Unsolved Problems');
     });
@@ -224,22 +217,17 @@ describe('Protractor Children Management', function() {
             expect(text).toBe("Maria Coloma");
         });
     });
-//
-//
-// //
-// //
-// // //=========================U N S O L V E D     P R O B L E M S==========================================================
-//
-        it('16 se puede acceder directamente a la vista de unsolved problems desde la vista de ALSUP', function () {
-        browser.get('http://localhost:8100');
-        element(by.id("child_selected")).click();
-        waitForElementToBeClickable(element(by.id("unsolvedProblemsID")),1000);
-        browser.sleep(1000);
 
-        expect(element(by.tagName('b')).getText()).toBe('Unsolved Problems');
-    });
-//
-//
+
+
+
+// //=========================U N S O L V E D     P R O B L E M S==========================================================
+
+        it('16 se puede acceder directamente a la vista de unsolved problems desde la vista de ALSUP', function () {
+            expect(element(by.tagName('b')).getText()).toBe('Unsolved Problems');
+        });
+
+
     it('17 El boton para crear unsolved problem estara inhabilitado mientras este vacio el campo de unsolved problems',function () {
         element.all(by.className("watchlist_menu button button-small button-clear button-positive")).then(function (boton) {
            boton[0].click();
@@ -255,7 +243,7 @@ describe('Protractor Children Management', function() {
     it('18 Crear un nuevo Unsolved Problem', function () {
         element(by.model("unsolvedProblem.description")).sendKeys("Unsolved Problem 1");
         element(by.buttonText("Create")).click();
-        browser.sleep(3000);
+        browser.sleep(1000);
 
         expect(element(by.binding("unsolvedProblem.description")).getText()).toBe("Unsolved Problem 1");
     });
@@ -266,7 +254,7 @@ describe('Protractor Children Management', function() {
         });
         element(by.model("unsolvedProblem.description")).sendKeys("Unsolved Problem 1");
         element(by.buttonText("Cancel")).click();
-        browser.sleep(3000);
+        browser.sleep(1000);
 
         expect(element(by.tagName('b')).getText()).toBe('Unsolved Problems');
     });
@@ -278,7 +266,7 @@ describe('Protractor Children Management', function() {
         element(by.id("laggingSkillsID")).click();
         element.all(by.binding("laggingSkill.description")).then(function (items) {
             var marcado = items[0];
-            expect(marcado.getCssValue('color')).toBe('rgba(68, 68, 68, 1)');
+            expect(marcado.getCssValue('color')).toBe('rgba(56, 126, 245, 1)');
         });
     });
 
@@ -301,7 +289,6 @@ describe('Protractor Children Management', function() {
     it('22 Editar un unsolved problem', function () {
         element(by.model("editableUnsolvedProblem.description")).clear().sendKeys("Unsolved Problem 1 EDITADO");
         element(by.buttonText("Save")).click();
-        //browser.sleep(3000);
 
         expect(element(by.binding("unsolvedProblem.description")).getText()).toBe("Unsolved Problem 1 EDITADO");
     });
@@ -330,11 +317,8 @@ describe('Protractor Children Management', function() {
 
         var botones_adicionales= element(by.binding("unsolvedProblem.description"));
         desplazarElemento(-200,0,botones_adicionales);
-        // browser.sleep(1000);
         element(by.id("delete_button")).click();
-        // browser.sleep(1000);
         element(by.buttonText("Cancel")).click();
-        // browser.sleep(3000);
 
         expect(element(by.binding("unsolvedProblem.description")).getText()).toBe("Unsolved Problem 1 EDITADO");
     });
@@ -343,11 +327,8 @@ describe('Protractor Children Management', function() {
     it('25 Al apretar el boton de Aceptar en el mensaje de confirmacion para borrar, borrara el unsolved problem', function () {
         var botones_adicionales= element(by.binding("unsolvedProblem.description"));
         desplazarElemento(-200,0,botones_adicionales);
-        //browser.sleep(3000);
         element(by.id("delete_button")).click();
-        //browser.sleep(4000);
         element(by.buttonText("OK")).click();
-        //browser.sleep(3000);
         element(by.id("no_unsolved_problems_message")).getText().then(function (text) {
 
             expect(text).toBe("No unsolved problems registered. Please register one above.");
@@ -389,120 +370,121 @@ describe('Protractor Children Management', function() {
 
             expect(element(by.binding("unsolvedProblem.description")).getText()).toBe("Unsolved Problem 2");
         });
-
-
     });
 
         it('28 desde la vista de unsolved problems no se puede pasar al step 2(Adult Concern) sin haber pasado el step 1(Empathy Step)',function () {
             var botones_adicionales= element(by.binding("unsolvedProblem.description"));
             desplazarElemento(-200,0,botones_adicionales);
-            browser.sleep(3000);
+            browser.sleep(2000);
             element(by.id("more_button")).click();
-            browser.sleep(4000);
+            browser.sleep(2000);
             element(by.buttonText("Step 2: Define Adult's Concern")).click();
             browser.sleep(2000);
             this.popupContainsHeaderText = function (text) {
                         this.popupShouldExist();
 
                         expect(this.popup.element(by.css('.popup-head')).getText()).toMatch("You have to finish previous steps to continue.");
-
                     };
-
-            browser.driver.switchTo().activeElement();
-            browser.sleep(3000);
-            element(by.buttonText("OK")).click();
-            browser.sleep(2000);
         });
 
-//     // it('29 desde la vista de unsolved problems no se puede pasar al step 3(Invitation Step) sin haber pasado el step 1(Empathy Step) y Step 2',function () {
-//     //     browser.get('http://localhost:8100');
-//     //     element(by.id("child_selected")).click();
-//     //     browser.sleep(5000);
-//     //     element(by.id("laggingSkillsID")).click();
-//     //     element(by.binding("laggingSkill.description")).click();
-//     //     browser.sleep(4000);
-//     //     var botones_adicionales= element(by.binding("unsolvedProblem.description"));
-//     //     desplazarElemento(-200,0,botones_adicionales);
-//     //     browser.sleep(3000);
-//     //     element(by.id("more_button")).click();
-//     //     browser.sleep(4000);
-//     //     element(by.buttonText("Step 3: Invitation Step")).click();
-//     //     browser.sleep(2000);
-//     //     this.popupContainsHeaderText = function (text) {
-//     //         this.popupShouldExist();
-//     //
-//     //         expect(this.popup.element(by.css('.popup-head')).getText()).toMatch("You have to finish previous steps to continue.");
-//     //     };
-//     //
-//     //     browser.driver.switchTo().activeElement();
-//     //     browser.sleep(3000);
-//     //     element(by.buttonText("OK")).click();
-//     //     browser.sleep(2000);
-//     // });
-//
-//
-//
-// // //==============================E M P A T H Y     S T E P==============================================================
-//     it('30 En la opciones de un unsolved problem debe permitir ingresar al step 2(Empathy step)', function () {
-//
-//         var botones_adicionales= element(by.binding("unsolvedProblem.description"));
-//         desplazarElemento(-200,0,botones_adicionales);
-//         browser.sleep(3000);
-//         element(by.id("more_button")).click();
-//         browser.sleep(4000);
-//         element(by.buttonText("Step 1: Empathy Step")).click();
-//         browser.sleep(2000);
-//
-//         expect(browser.getTitle()).toEqual('Empathy Step');
-//         browser.sleep()
-//     });
-//
-// //     it('31 probar mensaje de ayuda en empathy step',function () {
-// //
-// //             expect(element(by.id("help_message")).getText()).toMatch("I've noticed that you've been having ");
-// //             expect(element(by.id("help_message")).getText()).toContain("Unsolved Problem 2");
-// //             expect(element(by.id("help_message")).getText()).toMatch(", what's up?");
-// //         });
-// //
-// //         it('32 No se puede crear un nuevo Child Concern con el campo child concern vacio',function () {
-// //             element(by.className("watchlist_menu button button-small button-clear button-positive")).click();
-// //             var createButton = element(by.buttonText("Create"));
-// //
-// //             expect(createButton.isEnabled()).toBe(false);
-// //         });
-// //
-// //         it('33 Se puede cancelar la creacion de un nuevo child concern',function () {
-// //             element(by.buttonText("Cancel")).click();
-// //             browser.sleep(2000);
-// //             expect(element(by.id("no_childs_message")).getText()).toBe("No child's concern registered. Please register one above.");
-// //             browser.sleep(1000);
-// //         });
-// //
-// //         it('34 Crear un nuevo child concern',function () {
-// //             element(by.className("watchlist_menu button button-small button-clear button-positive")).click();
-// //             element(by.tagName("textarea")).sendKeys("Child Concern 1");
-// //             element(by.buttonText("Create")).click();
-// //             browser.sleep(3000);
-// //
-// //             expect(element(by.binding("childsConcern.description")).getText()).toBe("Child Concern 1");
-// //         });
-// //
-// //
-// //         it('35 Cuando se esta editando no se puede dejar el campo de Child concern vacio',function () {
-// //             var botones_adicionales=element(by.binding("childsConcern.description"));
-// //             desplazarElemento(-200,0,botones_adicionales);
-// //             browser.sleep(3000);
-// //             element(by.buttonText("No, keep drilling")).click();
-// //             browser.sleep(2000);
-// //             element(by.id("edit_button")).click();
-// //             browser.sleep(2000);
-// //             element(by.model("editableChildsConcern.description")).clear().sendKeys("");
-// //             browser.sleep(2000);
-// //             var createButton = element(by.buttonText("Save"));
-// //
-// //             expect(createButton.isEnabled()).toBe(false);
-// //         });
-// //
+    it('29 desde la vista de unsolved problems no se puede pasar al step 3(Invitation Step) sin haber pasado el step 1(Empathy Step) y Step 2',function () {
+        browser.get('http://localhost:8100');
+        element(by.id("child_selected")).click();
+        browser.sleep(2000);
+        element(by.id("laggingSkillsID")).click();
+        // element(by.binding("laggingSkill.description")).click();
+        element.all(by.binding("laggingSkill.description")).then(function (items) {
+           items[0].click();
+        });
+
+
+        browser.sleep(2000);
+        var botones_adicionales= element(by.binding("unsolvedProblem.description"));
+        desplazarElemento(-200,0,botones_adicionales);
+        browser.sleep(2000);
+        element(by.id("more_button")).click();
+        browser.sleep(2000);
+        element(by.buttonText("Step 3: Invitation Step")).click();
+        browser.sleep(2000);
+        this.popupContainsHeaderText = function (text) {
+            this.popupShouldExist();
+
+            expect(this.popup.element(by.css('.popup-head')).getText()).toMatch("You have to finish previous steps to continue.");
+        };
+        //
+
+    });
+
+
+
+// //==============================E M P A T H Y     S T E P==============================================================
+    it('30 En la opciones de un unsolved problem debe permitir ingresar al step 2(Empathy step)', function () {
+        browser.driver.switchTo().activeElement();
+        browser.sleep(3000);
+        element(by.buttonText("OK")).click();
+        browser.sleep(2000);
+
+        var botones_adicionales= element(by.binding("unsolvedProblem.description"));
+        desplazarElemento(-200,0,botones_adicionales);
+        browser.sleep(3000);
+        element(by.id("more_button")).click();
+        browser.sleep(2000);
+        element(by.buttonText("Step 1: Empathy Step")).click();
+        browser.sleep(2000);
+
+        expect(browser.getTitle()).toEqual('Empathy Step');
+        browser.sleep()
+    });
+
+    it('31 probar mensaje de ayuda en empathy step',function () {
+
+            expect(element(by.id("help_message")).getText()).toMatch("I've noticed that you've been having ");
+            expect(element(by.id("help_message")).getText()).toContain("Unsolved Problem 2");
+            expect(element(by.id("help_message")).getText()).toMatch(", what's up?");
+        });
+
+        it('32 No se puede crear un nuevo Child Concern con el campo child concern vacio',function () {
+            element.all(by.className("watchlist_menu button button-small button-clear button-positive")).then(function (boton) {
+               boton[0].click();
+               sleep(3);
+            });
+            var createButton = element(by.buttonText("Create"));
+
+            expect(createButton.isEnabled()).toBe(false);
+        });
+        //
+        // it('33 Se puede cancelar la creacion de un nuevo child concern',function () {
+        //     element(by.buttonText("Cancel")).click();
+        //     browser.sleep(2000);
+        //     expect(element(by.id("no_childs_message")).getText()).toBe("No child's concern registered. Please register one above.");
+        //     browser.sleep(1000);
+        // });
+
+        // it('34 Crear un nuevo child concern',function () {
+        //     element(by.className("watchlist_menu button button-small button-clear button-positive")).click();
+        //     element(by.tagName("textarea")).sendKeys("Child Concern 1");
+        //     element(by.buttonText("Create")).click();
+        //     browser.sleep(3000);
+        //
+        //     expect(element(by.binding("childsConcern.description")).getText()).toBe("Child Concern 1");
+        // });
+        //
+        //
+        // it('35 Cuando se esta editando no se puede dejar el campo de Child concern vacio',function () {
+        //     var botones_adicionales=element(by.binding("childsConcern.description"));
+        //     desplazarElemento(-200,0,botones_adicionales);
+        //     browser.sleep(3000);
+        //     element(by.buttonText("No, keep drilling")).click();
+        //     browser.sleep(2000);
+        //     element(by.id("edit_button")).click();
+        //     browser.sleep(2000);
+        //     element(by.model("editableChildsConcern.description")).clear().sendKeys("");
+        //     browser.sleep(2000);
+        //     var createButton = element(by.buttonText("Save"));
+        //
+        //     expect(createButton.isEnabled()).toBe(false);
+        // });
+
 // //     it('36 Cuando se esta editando se debe poder cancelar y no persistira el cambio',function () {
 // //             browser.get('http://localhost:8100/#/app/unsolvedProblem/show/3');
 // //             var botones_adicionales=element(by.binding("childsConcern.description"));
