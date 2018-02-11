@@ -46,6 +46,7 @@ describe('Protractor Children Management', function() {
    });
 
   it('2 No Child registered message', function() {
+
         expect(element(by.id('NoChildRegistered')).getText()).toEqual("PLEASE REGISTER ONE ABOVE");
 //        logger.log('info','2 No Child registered');
   });
@@ -81,6 +82,7 @@ describe('Protractor Children Management', function() {
         element(by.buttonText("Cancel")).click();
 
         expect(browser.getTitle()).toEqual('Manage Children');
+        sleep(1);
 //        logger.log('info','5 Cancel option when registeringa a "New Child');
     });
 
@@ -90,7 +92,7 @@ describe('Protractor Children Management', function() {
         element(by.model("child.birthday")).sendKeys("06/22/1981");
         element(by.model("child.gender")).element(by.css("[value='Male']")).click();
         element(by.buttonText("Create")).click();
-
+        browser.sleep(2000);
         element(by.repeater("child in childs")).getText().then(function (text) {
 
             expect(text).toMatch("Javier Vildozo");
@@ -127,6 +129,7 @@ describe('Protractor Children Management', function() {
         moreButton.click();
         element(by.buttonText("Delete child")).click();
         browser.driver.switchTo().activeElement();
+        browser.sleep(1000);
         element(by.className("button ng-binding button-default")).click();
         element(by.repeater("child in childs")).getText().then(function (text) {
 
@@ -140,7 +143,9 @@ describe('Protractor Children Management', function() {
         var moreButton= element(by.id('moreButton'));
         moreButton.click();
         element(by.buttonText("Delete child")).click();
+        browser.sleep(1000);
         element(by.buttonText("OK")).click();
+        browser.sleep(1000);
 
         expect(element(by.id('NoChildRegistered')).getText()).toEqual("PLEASE REGISTER ONE ABOVE");
 //        logger.log('info','9 Delete a Child');
@@ -170,7 +175,7 @@ describe('Protractor Children Management', function() {
 
     it('11 Acceder a ALSUP de un Child y visualizar botones de lagging Skills y unsolved problem', function () {
        element(by.id("child_selected")).click();
-       browser.sleep(1000);
+       browser.sleep(2000);
 
        expect(element(by.tagName('h2')).getText()).toBe('ALSUP');
        expect(element(by.id("laggingSkillsID")).getText()).toBe('Lagging Skills');
@@ -454,119 +459,125 @@ describe('Protractor Children Management', function() {
 
             expect(createButton.isEnabled()).toBe(false);
         });
-        //
-        // it('33 Se puede cancelar la creacion de un nuevo child concern',function () {
-        //     element(by.buttonText("Cancel")).click();
-        //     browser.sleep(2000);
-        //     expect(element(by.id("no_childs_message")).getText()).toBe("No child's concern registered. Please register one above.");
+
+        it('33 Se puede cancelar la creacion de un nuevo child concern',function () {
+            element(by.buttonText("Cancel")).click();
+            browser.sleep(2000);
+            expect(element(by.id("no_childs_message")).getText()).toBe("No child's concern registered. Please register one above.");
         //     browser.sleep(1000);
-        // });
+        });
 
-        // it('34 Crear un nuevo child concern',function () {
-        //     element(by.className("watchlist_menu button button-small button-clear button-positive")).click();
-        //     element(by.tagName("textarea")).sendKeys("Child Concern 1");
-        //     element(by.buttonText("Create")).click();
-        //     browser.sleep(3000);
-        //
-        //     expect(element(by.binding("childsConcern.description")).getText()).toBe("Child Concern 1");
-        // });
-        //
-        //
-        // it('35 Cuando se esta editando no se puede dejar el campo de Child concern vacio',function () {
-        //     var botones_adicionales=element(by.binding("childsConcern.description"));
-        //     desplazarElemento(-200,0,botones_adicionales);
-        //     browser.sleep(3000);
-        //     element(by.buttonText("No, keep drilling")).click();
-        //     browser.sleep(2000);
-        //     element(by.id("edit_button")).click();
-        //     browser.sleep(2000);
-        //     element(by.model("editableChildsConcern.description")).clear().sendKeys("");
-        //     browser.sleep(2000);
-        //     var createButton = element(by.buttonText("Save"));
-        //
-        //     expect(createButton.isEnabled()).toBe(false);
-        // });
+        it('34 Crear un nuevo child concern',function () {
+            element.all(by.className("watchlist_menu button button-small button-clear button-positive")).then(function (boton) {
+               boton[0].click();
+            });
+            element(by.tagName("textarea")).sendKeys("Child Concern 1");
+            element(by.buttonText("Create")).click();
+            browser.sleep(3000);
 
-// //     it('36 Cuando se esta editando se debe poder cancelar y no persistira el cambio',function () {
-// //             browser.get('http://localhost:8100/#/app/unsolvedProblem/show/3');
-// //             var botones_adicionales=element(by.binding("childsConcern.description"));
-// //             desplazarElemento(-200,0,botones_adicionales);
-// //             browser.sleep(2000);
-// //             element(by.buttonText("No, keep drilling")).click();
-// //             element(by.id("edit_button")).click();
-// //             browser.sleep(2000);
-// //             element(by.model("editableChildsConcern.description")).clear().sendKeys("Vamos a CANCELAR");
-// //             browser.sleep(2000);
-// //             element(by.buttonText("Cancel")).click();
-// //             browser.sleep(2000);
-// //
-// //             expect(element(by.binding("childsConcern.description")).getText()).toBe("Child Concern 1");
-// //             browser.sleep(2000);
-// //         });
-// //
-// //
-// //     it('37 Cuando se esta editando y en se guarda el cabio debe persistir',function () {
-// //
-// //         var botones_adicionales=element(by.binding("childsConcern.description"));
-// //         desplazarElemento(-200,0,botones_adicionales);
-// //         browser.sleep(2000);
-// //
-// //         element(by.buttonText("No, keep drilling")).click();
-// //         element(by.id("edit_button")).click();
-// //         browser.sleep(2000);
-// //         element(by.model("editableChildsConcern.description")).clear().sendKeys("Child Concern 1 EDITADO");
-// //         browser.sleep(2000);
-// //         element(by.buttonText("Save")).click();
-// //
-// //         expect(element(by.binding("childsConcern.description")).getText()).toBe("Child Concern 1 EDITADO");
-// //     });
-// //
-// //     it('38 Al borrar cuando se visualiza el mensaje de confirmacion, se debe poder cancelar la eliminacion de un Child Concern',function () {
-// //              browser.get('http://localhost:8100/#/app/unsolvedProblem/show/3');
-// //             var botones_adicionalesCC=element(by.binding("childsConcern.description"));
-// //             desplazarElemento(-200,0,botones_adicionalesCC);
-// //             element(by.buttonText("No, keep drilling")).click();
-// //             element(by.id("delete_button")).click();
-// //             browser.sleep(2000);
-// //             element(by.buttonText("Cancel")).click();
-// //             browser.sleep(2000);
-// //
-// //             expect(element(by.binding("childsConcern.description")).getText()).toBe("Child Concern 1 EDITADO");
-// //             browser.sleep(2000);
-// //         });
-// // //
-// //     it('39 Al confirmar el mensaje de borrar child concern y aceptar, el child concern sera borrado', function () {
-// //         var botones_adicionales=element(by.binding("childsConcern.description"));
-// //         desplazarElemento(-200,0,botones_adicionales);
-// //         browser.sleep(2000);
-// //         element(by.buttonText("No, keep drilling")).click();
-// //         element(by.id("delete_button")).click();
-// //         browser.sleep(2000);
-// //         element(by.buttonText("OK")).click();
-// //         browser.sleep(2000);
-// //
-// //         expect(element(by.id("no_childs_message")).getText()).toBe("No child's concern registered. Please register one above.");
-// //         browser.sleep(2000);
-// //     });
-//
-//
-//     it('40 Crear un nuevo child concern seguido por la creacion del segundo child concern',function () {
-//         element(by.className("watchlist_menu button button-small button-clear button-positive")).click();
-//         element(by.tagName("textarea")).sendKeys("Child Concern 1");
-//         element(by.buttonText("Create")).click();
-//         browser.sleep(3000);
-//         element(by.className("watchlist_menu button button-small button-clear button-positive")).click();
-//         element(by.tagName("textarea")).sendKeys("Child Concern 2");
-//         element(by.buttonText("Create")).click();
-//         browser.sleep(3000);
-//         element.all(by.binding("childsConcern.description")).then(function (items) {
-//
-//             expect(items[0].getText()).toBe("Child Concern 1");
-//             expect(items[1].getText()).toBe("Child Concern 2");
-//         });
-//         browser.sleep(2000);
-//     });
-//
+            expect(element(by.binding("childsConcern.description")).getText()).toBe("Child Concern 1");
+        });
+
+
+        it('35 Cuando se esta editando no se puede dejar el campo de Child concern vacio',function () {
+            var botones_adicionales=element(by.binding("childsConcern.description"));
+            desplazarElemento(-200,0,botones_adicionales);
+            browser.sleep(3000);
+            element(by.buttonText("No, keep drilling")).click();
+            browser.sleep(2000);
+            element(by.id("edit_button")).click();
+            browser.sleep(2000);
+            element(by.model("editableChildsConcern.description")).clear().sendKeys("");
+            browser.sleep(2000);
+            var createButton = element(by.buttonText("Save"));
+
+            expect(createButton.isEnabled()).toBe(false);
+        });
+
+    it('36 Cuando se esta editando se debe poder cancelar y no persistira el cambio',function () {
+            browser.get('http://localhost:8100/#/app/unsolvedProblem/show/3');
+            var botones_adicionales=element(by.binding("childsConcern.description"));
+            desplazarElemento(-200,0,botones_adicionales);
+            browser.sleep(2000);
+            element(by.buttonText("No, keep drilling")).click();
+            element(by.id("edit_button")).click();
+            browser.sleep(2000);
+            element(by.model("editableChildsConcern.description")).clear().sendKeys("Vamos a CANCELAR");
+            browser.sleep(2000);
+            element(by.buttonText("Cancel")).click();
+            browser.sleep(2000);
+
+            expect(element(by.binding("childsConcern.description")).getText()).toBe("Child Concern 1");
+            browser.sleep(2000);
+        });
+
+
+    it('37 Cuando se esta editando y en se guarda el cabio debe persistir',function () {
+
+        var botones_adicionales=element(by.binding("childsConcern.description"));
+        desplazarElemento(-200,0,botones_adicionales);
+        browser.sleep(2000);
+
+        element(by.buttonText("No, keep drilling")).click();
+        element(by.id("edit_button")).click();
+        browser.sleep(2000);
+        element(by.model("editableChildsConcern.description")).clear().sendKeys("Child Concern 1 EDITADO");
+        browser.sleep(2000);
+        element(by.buttonText("Save")).click();
+
+        expect(element(by.binding("childsConcern.description")).getText()).toBe("Child Concern 1 EDITADO");
+    });
+
+    it('38 Al borrar cuando se visualiza el mensaje de confirmacion, se debe poder cancelar la eliminacion de un Child Concern',function () {
+             browser.get('http://localhost:8100/#/app/unsolvedProblem/show/3');
+            var botones_adicionalesCC=element(by.binding("childsConcern.description"));
+            desplazarElemento(-200,0,botones_adicionalesCC);
+            element(by.buttonText("No, keep drilling")).click();
+            element(by.id("delete_button")).click();
+            browser.sleep(2000);
+            element(by.buttonText("Cancel")).click();
+            browser.sleep(2000);
+
+            expect(element(by.binding("childsConcern.description")).getText()).toBe("Child Concern 1 EDITADO");
+            browser.sleep(2000);
+        });
+
+    it('39 Al confirmar el mensaje de borrar child concern y aceptar, el child concern sera borrado', function () {
+        var botones_adicionales=element(by.binding("childsConcern.description"));
+        desplazarElemento(-200,0,botones_adicionales);
+        browser.sleep(2000);
+        element(by.buttonText("No, keep drilling")).click();
+        element(by.id("delete_button")).click();
+        browser.sleep(2000);
+        element(by.buttonText("OK")).click();
+        browser.sleep(2000);
+
+        expect(element(by.id("no_childs_message")).getText()).toBe("No child's concern registered. Please register one above.");
+        browser.sleep(2000);
+    });
+
+
+    it('40 Crear un nuevo child concern seguido por la creacion del segundo child concern',function () {
+        element.all(by.className("watchlist_menu button button-small button-clear button-positive")).then(function (boton) {
+           boton[0].click();
+        });
+        element(by.tagName("textarea")).sendKeys("Child Concern 1");
+        element(by.buttonText("Create")).click();
+        browser.sleep(3000);
+        element.all(by.className("watchlist_menu button button-small button-clear button-positive")).then(function (boton) {
+            boton[0].click();
+        });
+        element(by.tagName("textarea")).sendKeys("Child Concern 2");
+        element(by.buttonText("Create")).click();
+        browser.sleep(3000);
+        element.all(by.binding("childsConcern.description")).then(function (items) {
+
+            expect(items[0].getText()).toBe("Child Concern 1");
+            expect(items[1].getText()).toBe("Child Concern 2");
+        });
+        browser.sleep(2000);
+    });
+
 //     // it('41 Cuando se desea pasar al step 2(Adult concern), se visualizara un mensaje',function () {
 //     //     browser.get('http://localhost:8100/#/app/unsolvedProblem/show/3');
 //     //     var botones_adicionalesCC=element(by.binding("childsConcern.description"));
