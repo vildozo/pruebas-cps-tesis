@@ -155,6 +155,7 @@ describe('Protractor Children Management', function() {
           element(by.model("child.gender")).element(by.css("[value='Female']")).click();
           element(by.model("child.birthday")).sendKeys("04/12/1980");
           element(by.buttonText("Create")).click();
+          browser.sleep(2000);
 
         element(by.repeater("child in childs")).getText().then(function (text) {
 
@@ -169,6 +170,7 @@ describe('Protractor Children Management', function() {
 
     it('11 Acceder a ALSUP de un Child y visualizar botones de lagging Skills y unsolved problem', function () {
        element(by.id("child_selected")).click();
+       browser.sleep(1000);
 
        expect(element(by.tagName('h2')).getText()).toBe('ALSUP');
        expect(element(by.id("laggingSkillsID")).getText()).toBe('Lagging Skills');
