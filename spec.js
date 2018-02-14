@@ -1041,124 +1041,117 @@ describe('Protractor Children Management', function() {
         });
     });
 
+    it("80Mostrar el mejor rating para el unsolved problem",function () {
+        browser.get('http://localhost:8100');
+        element(by.id("child_selected")).click();
+        browser.sleep(2000);
+        element(by.id("unsolvedProblemsID")).click();
+        var icon_sad = element(by.className("icon ion-sad"));
+        var icon_heart_broken = element(by.className("icon ion-heart-broken"));
+        var icon_heart_ = element(by.className("icon ion-heart"));
+        var icon_smile_ = element(by.className("icon ion-happy"));
 
-
-
-    it("80 Mostrar en unsolved problem el mejor rating",function () {
-        element(by.className("button button-icon button-clear ion-navicon")).click();
-        sleep(1);
-        // element.all(by.className("item item-icon-left")).then(function (items) {
-        //    items[4].click();
-        //    sleep(2);
-        //     var icon_sad = element(by.className("icon ion-sad"));
-        //     var icon_heart_broken = element(by.className("icon ion-heart-broken"));
-        //     var icon_heart_ = element(by.className("icon ion-heart"));
-        //     var icon_smile_ = element(by.className("icon ion-happy"));
-        //
-        //     expect(icon_sad.isPresent()).toBeFalsy();
-        //     expect(icon_heart_broken.isPresent()).toBeTruthy();
-        //     expect(icon_heart_.isPresent()).toBeFalsy();
-        //     expect(icon_smile_.isPresent()).toBeFalsy();
-        // });
+        expect(icon_sad.isPresent()).toBeFalsy();
+        expect(icon_heart_broken.isPresent()).toBeTruthy();
+        expect(icon_heart_.isPresent()).toBeFalsy();
+        expect(icon_smile_.isPresent()).toBeFalsy();
     });
-// //======================================================================================================================
-// //====================================C R E A R    U N    S E G U N D O    C H I L D====================================
-// //======================================================================================================================
-//
-//     it('81 Button Create disable when creating a new child when name field is empty', function() {
-//         browser.get('http://localhost:8100');
-//         addAChild.click();
-//         element(by.model("child.gender")).element(by.css("[value='Male']")).click();
-//         var createButton = element(by.buttonText("Create"));
-//
-//         expect(createButton.isEnabled()).toBe(false);
-// //        logger.log('info','3 Button Create disable when creating a new child when name field is empty');
-//     });
-//
-//     it('82 Cant Register a Child with tomorrows Date', function() {
-//         element(by.model("child.first_name")).sendKeys("Posterior a Fecha actual");
-//         element(by.model("child.gender")).element(by.css("[value='Male']")).click();
-//         element(by.model("child.birthday")).sendKeys("06/22/2081");
-//         element(by.buttonText("Create")).click();
-//         this.popupContainsHeaderText = function (text) {
-//             this.popupShouldExist();
-//
-//             expect(this.popup.element(by.css('.popup-head')).getText()).toMatch("Please insert a date prior to today");
-//             this.popup.element(by.buttonText("OK")).click();
-//         };
-// //        logger.log('info','4 Cant Register a Child with tomorrows Date');
-//     });
-//
-//     it('83 Cancel option when registeringa a "New Child" ', function() {
-//         browser.get('http://localhost:8100');
-//         addAChild.click();
-//         titleModalNewChild = element(by.id('head_New_Child'));
-//         expect(titleModalNewChild.getText()).toEqual("New Child");
-//         element(by.buttonText("Cancel")).click();
-//         browser.sleep(2000);
-//
-//         expect(browser.getTitle()).toEqual('Manage Children');
-//         sleep(2);
-// //        logger.log('info','5 Cancel option when registeringa a "New Child');
-//     });
 
-//       it('84 Add Second Child', function() {
-//         addAChild.click();
-//         var childsNameInput = element(by.id('childs_name'));
-//         element(by.model("child.first_name")).sendKeys("Javier Vildozo");
-//         element(by.model("child.birthday")).sendKeys("06/22/1981");
-//         element(by.model("child.gender")).element(by.css("[value='Male']")).click();
-//         element(by.buttonText("Create")).click();
-//         browser.sleep(1000);
+
+//======================================================================================================================
+//====================================C R E A R    U N    S E G U N D O    C H I L D====================================
+//======================================================================================================================
+
+    it('81 Button Create disable when creating a new child when name field is empty', function() {
+        browser.get('http://localhost:8100');
+        addAChild.click();
+        element(by.model("child.gender")).element(by.css("[value='Male']")).click();
+        var createButton = element(by.buttonText("Create"));
+
+        expect(createButton.isEnabled()).toBe(false);
+//        logger.log('info','3 Button Create disable when creating a new child when name field is empty');
+    });
+
+        it('84 Cant Register a Child with tomorrows Date', function() {
+            element(by.model("child.first_name")).sendKeys("Posterior a Fecha actual");
+            element(by.model("child.gender")).element(by.css("[value='Male']")).click();
+            element(by.model("child.birthday")).sendKeys("06/22/2081");
+            element(by.buttonText("Create")).click();
+            this.popupContainsHeaderText = function (text) {
+                this.popupShouldExist();
+
+                expect(this.popup.element(by.css('.popup-head')).getText()).toMatch("Please insert a date prior to today");
+                this.popup.element(by.buttonText("OK")).click();
+        };
+    });
+
+    it('85 Cancel option when registeringa a "New Child" ', function() {
+        browser.get('http://localhost:8100');
+        addAChild.click();
+        titleModalNewChild = element(by.id('head_New_Child'));
+        expect(titleModalNewChild.getText()).toEqual("New Child");
+        element(by.buttonText("Cancel")).click();
+        browser.sleep(2000);
+
+        expect(browser.getTitle()).toEqual('Manage Children');
+    });
+
+    it('6 Add first Child', function() {
+        browser.get('http://localhost:8100');
+        addAChild.click();
+        var childsNameInput = element(by.id('childs_name'));
+        element(by.model("child.first_name")).sendKeys("Javier Vildozo");
+        element(by.model("child.birthday")).sendKeys("06/22/1981");
+        element(by.model("child.gender")).element(by.css("[value='Male']")).click();
+        element(by.buttonText("Create")).click();
+        browser.sleep(1000);
+
+        element(by.repeater("child in childs")).getText().then(function (text) {
+
+            expect(text).toMatch("Javier Vildozo");
+            expect(text).toMatch("22/06/81");
+        });
+
+        var mypic = element(by.css("img[src*='boy.png']"));
+        expect(mypic.isPresent()).toBe(true);
+    });
+
+    it('7 Edit a Child', function() {
+        // var moreButton= element(by.id('moreButton'));
+        element.all(by.id('moreButton')).then(function (items) {
+            items[1].click();
+            element(by.buttonText("Edit child")).click();
+            element(by.model("editableChild.first_name")).clear().sendKeys("Guido Javier Vildozo Mendez");
+            element(by.buttonText("Save")).click();
+            browser.sleep(2000);
+            element(by.repeater("child in childs")).getText().then(function (text) {
 //
-//         // element(by.repeater("child in childs")).getText().then(function (text) {
-//         //     // printSepartorAndElement(text);
-//         //     // expect(text).toMatch("Javier Vildozo");
-//         //     // expect(text).toMatch("22/06/81");
-//         // });
-//
-//           element.all(by.repeater("child in childs")).then(function (item) {
-//               printSepartorAndElement(item.length);
-//               // printSepartorAndElement(item[0].getText());
-//               // printSepartorAndElement(item[1].getText());
-//
-//           });
-//
-//           var mypic = element(by.css("img[src*='boy.png']"));
-//           expect(mypic.isPresent()).toBe(true);
-//             sleep(10);
-// //        logger.log('info','6 Add first Child');
-//     });
-//
-//     it('7 Edit a Child', function() {
-//         var moreButton= element(by.id('moreButton'));
-//         moreButton.click();
-//         element(by.buttonText("Edit child")).click();
-//         element(by.model("editableChild.first_name")).clear().sendKeys("Lisa");
-//         element(by.model("editableChild.gender")).element(by.css("[value='Female']")).click();
-//         element(by.buttonText("Save")).click();
-//         element(by.repeater("child in childs")).getText().then(function (text) {
-//
-//         expect(text).toMatch("Lisa");
-//         });
-//         var mypic = element(by.css("img[src*='girl.png']"));
-//         expect(mypic.isPresent()).toBe(true);
-// //        logger.log('info','7 Edit a Child');
-//     });
-//
-//
-//     it('8 You can Cancel in windows in order to not delete a Child', function() {
-//         browser.get('http://localhost:8100');
-//         var moreButton= element(by.id('moreButton'));
-//         moreButton.click();
-//         element(by.buttonText("Delete child")).click();
-//         element(by.buttonText("Cancel")).click();
-//         element(by.repeater("child in childs")).getText().then(function (text) {
-//
-//             expect(text).toMatch("Lisa");
-//         });
-// //        logger.log('info','8 You can Cancel in windows in order to not delete a Child');
-//     });
+//             expect(text).toMatch("Guido Javier Vildozo Mendez");
+            });
+
+        });
+    });
+
+
+    it('8 You can Cancel in windows in order to not delete a Child', function() {
+        browser.get('http://localhost:8100');
+        // var moreButton= element(by.id('moreButton'));
+        element.all(by.id('moreButton')).then(function (items) {
+            items[1].click();
+            element(by.buttonText("Delete child")).click();
+            element(by.model("editableChild.first_name")).clear().sendKeys("Guido Javier Vildozo Mendez");
+            element(by.buttonText("Save")).click();
+            browser.sleep(2000);
+
+        });
+
+
+        element(by.buttonText("Cancel")).click();
+        element(by.repeater("child in childs")).getText().then(function (text) {
+
+            expect(text).toMatch("Guido Javier Vildozo Mendez");
+        });
+    });
 //
 //
 //     it('9 Delete a Child', function() {
@@ -1170,33 +1163,38 @@ describe('Protractor Children Management', function() {
 //         browser.sleep(1000);
 //
 //         expect(element(by.id('NoChildRegistered')).getText()).toEqual("PLEASE REGISTER ONE ABOVE");
-// //        logger.log('info','9 Delete a Child');
 //     });
 //
 //
 //
-//         it('10 Crear 2do niño ', function() {
-//             addAChild.click();
-//             var childsNameInput = element(by.id('childs_name'));
-//             element(by.model("child.first_name")).sendKeys("Maria Coloma");
-//             element(by.model("child.gender")).element(by.css("[value='Female']")).click();
-//             element(by.model("child.birthday")).sendKeys("04/12/1980");
-//             element(by.buttonText("Create")).click();
-//             browser.sleep(4000);
+//     it('10 Crear 2do niño ', function() {
+//         addAChild.click();
+//         var childsNameInput = element(by.id('childs_name'));
+//         element(by.model("child.first_name")).sendKeys("Maria Coloma");
+//         element(by.model("child.gender")).element(by.css("[value='Female']")).click();
+//         element(by.model("child.birthday")).sendKeys("04/12/1980");
+//         element(by.buttonText("Create")).click();
+//         browser.sleep(4000);
 //
-//             element(by.repeater("child in childs")).getText().then(function (text) {
+//         element(by.repeater("child in childs")).getText().then(function (text) {
 //
-//                 expect(text).toMatch("Maria Coloma");
-//                 expect(text).toMatch("12/04/80");
-//             });
-//             var mypic = element(by.css("img[src*='girl.png']"));
-//             expect(mypic.isPresent()).toBe(true);
-// //          logger.log('info','');
+//             expect(text).toMatch("Maria Coloma");
+//             expect(text).toMatch("12/04/80");
 //         });
-
-
-
-
+//         var mypic = element(by.css("img[src*='girl.png']"));
+//         expect(mypic.isPresent()).toBe(true);
+// //          logger.log('info','');
+//     });
+//
+//
+//     it('11 Acceder a ALSUP de un Child y visualizar botones de lagging Skills y unsolved problem', function () {
+//         element(by.id("child_selected")).click();
+//         browser.sleep(2000);
+//
+//         expect(element(by.tagName('h2')).getText()).toBe('ALSUP');
+//         expect(element(by.id("laggingSkillsID")).getText()).toBe('Lagging Skills');
+//         expect(element(by.id("unsolvedProblemsID")).getText()).toBe('Unsolved Problems');
+//     });
 
 
 
