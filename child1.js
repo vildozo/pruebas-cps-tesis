@@ -448,7 +448,7 @@ describe('Protractor Children Management', function() {
         browser.sleep()
     });
 
-    it('31 probar mensaje de ayuda en empathy step', function () {
+    it('31 verificar mensaje de ayuda en empathy step', function () {
 
         expect(element(by.id("help_message")).getText()).toMatch("I've noticed that you've been having ");
         expect(element(by.id("help_message")).getText()).toContain("Unsolved Problem 2");
@@ -600,7 +600,7 @@ describe('Protractor Children Management', function() {
     });
 
 
-    it('42 Al visualizar mensaje si se desea pasar a Adults concern se puede cancelar', function () {
+    it('42 Al visualizar mensaje si se desea pasar a Adults concern se puede rechazar', function () {
         browser.sleep(2000);
         element.all(by.binding("childsConcern.description")).then(function (childConcerns) {
             var botones_adicionalesCC = childConcerns[0];
