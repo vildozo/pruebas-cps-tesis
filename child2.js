@@ -339,14 +339,19 @@ describe('Protractor Children Management', function() {
         element.all(by.binding("unsolvedProblem.description")).then(function (items) {
             var botones_adicionales = items[1];
             desplazarElemento(-200,0,botones_adicionales);
+            browser.sleep(3000);
             element.all(by.id("edit_button")).then(function (items) {
+                browser.sleep(3000);
                 items[1].click();
+                browser.sleep(3000);
             });
         });
+        browser.sleep(3000);
         element(by.model("editableUnsolvedProblem.description")).clear();
-
+        browser.sleep(3000);
         expect(element(by.buttonText("Save")).isEnabled()).toBe(false);
-        //browser.sleep(3000);
+        browser.sleep(3000);
+
     });
 
 
