@@ -16,7 +16,7 @@ exports.config = {
   framework: 'jasmine',
   directConnect: true,
   seleniumAddress: 'http://localhost:4444/wd/hub',
-  specs: ["child2.js"],
+  specs: ["firstChildManagement.js","firstChildALSUPLaggingSkills.js","firstChildALSUPUnsolvedProblems.js"],
 
     jasmineNodeOpts:{
       showColors: true,
