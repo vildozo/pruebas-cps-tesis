@@ -11,9 +11,6 @@ var elementoACapturar = function(){
         (by.id('childs_name'));
     };
 
-    this.imprimirLinea = function(){
-        console.log("================================================");
-    }
 
 
     // var factoryNewChild = element(by.css('title title-left'));

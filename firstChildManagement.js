@@ -1,7 +1,5 @@
 var funciones = require('./funciones.js');
-var elementos = require('./variables.js');
 var funcionesAuxiliares = new funciones.auxiliares;
-var elementoACapturar = new elementos.elementos();
 
 
 
@@ -14,6 +12,7 @@ describe('Children Management: First Child', function() {
     it('1 Open app on the Manage Children View', function () {
         funcionesAuxiliares.browserDisplay();
 
+
         browser.get('http://localhost:8100');
         expect(browser.getTitle()).toEqual('Manage Children');
     });
@@ -25,9 +24,7 @@ describe('Children Management: First Child', function() {
     });
 
     it('3 Button Create disable when creating a new child when name field is empty', function () {
-        // addAChild.click();
-        elementoACapturar.clickOnAddAChild();
-        // elemento.addAChild().click();
+        element(by.id('new-child-btn')).click();
         element(by.model("child.gender")).element(by.css("[value='Male']")).click();
         var createButton = element(by.buttonText("Create"));
 
