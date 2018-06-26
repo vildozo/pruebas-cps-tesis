@@ -1,38 +1,43 @@
 var funciones = require('./funciones.js');
 var funcionesAuxiliares = new funciones.auxiliares;
+var variables = require('./variables.js');
+var elemento = new variables.elementos();
 
 
 
 
-describe('Children Management: First Child', function() {
+describe('Children Management: First Child -->', function() {
 
-    var addAChild = element(by.id('new-child-btn'));
+    var addAChild = element(by.className("watchlist_menu button button-small button-clear button-positive"));
+    var moreButton = element(by.className("col col-50 button button-small button-calm"));
 
 
-    it('1 Open app on the Manage Children View', function () {
+    it('1 Open app and see the homepage', function () {
         funcionesAuxiliares.browserDisplay();
+        funcionesAuxiliares.goToMainPage();
 
-
-        browser.get('http://localhost:8100');
         expect(browser.getTitle()).toEqual('Manage Children');
     });
 
-
-
-    it('2 No Child registered message', function () {
-        expect(element(by.id('NoChildRegistered')).getText()).toEqual("PLEASE REGISTER ONE ABOVE");
+    it("2 When starting the app you should see message 'No Child registered' ", function () {
+        element.all(by.tagName("b")).then(function (boldList){
+            expect(boldList[1].getText()).toEqual("PLEASE REGISTER ONE ABOVE");
+        });
     });
 
-    it('3 Button Create disable when creating a new child when name field is empty', function () {
-        element(by.id('new-child-btn')).click();
-        element(by.model("child.gender")).element(by.css("[value='Male']")).click();
-        var createButton = element(by.buttonText("Create"));
 
-        expect(createButton.isEnabled()).toBe(false);
-    });
 
-    describe('Test cases for registering a child', function () {
-        it('4 Cant Register a Child with tomorrows Date', function () {
+    describe('Test cases for registering a child-->', function () {
+        it('3 When creating a new child and name field is empthy you the Create button is disabled', function () {
+            element(by.className("watchlist_menu button button-small button-clear button-positive")).click();
+
+            element(by.model("child.gender")).element(by.css("[value='Male']")).click();
+            var createButton = element(by.buttonText("Create"));
+
+            expect(createButton.isEnabled()).toBe(false);
+        });
+
+        it('4 Cant Register a Child with a birthdate with tomorrows Date', function () {
             element(by.model("child.first_name")).sendKeys("Posterior a Fecha actual");
             element(by.model("child.gender")).element(by.css("[value='Male']")).click();
             element(by.model("child.birthday")).sendKeys("06/22/2081");
@@ -45,43 +50,38 @@ describe('Children Management: First Child', function() {
             };
         });
 
-        it('5 Cancel option when registering a "New Child" ', function () {
-            browser.get('http://localhost:8100');
+        it('5 When registering a  "New Child" you should be able to cancel', function () {
+            funcionesAuxiliares.goToMainPage();
             addAChild.click();
-            titleModalNewChild = element(by.id('head_New_Child'));
-            expect(titleModalNewChild.getText()).toEqual("New Child");
-            element(by.buttonText("Cancel")).click();
-            browser.sleep(2000);
+            titleModalNewChild = element.all(by.tagName("h1"));
+            expect(titleModalNewChild.getText()).toContain("New Child");
+            funcionesAuxiliares.waitForElementToBeClickable(element(by.buttonText("Cancel")),2000)
 
             expect(browser.getTitle()).toEqual('Manage Children');
         });
 
-        it('6 Add first Child', function () {
-            browser.get('http://localhost:8100');
+        it('6 Create first Child successfully', function () {
+            funcionesAuxiliares.goToMainPage();
+
             addAChild.click();
             var childsNameInput = element(by.id('childs_name'));
             element(by.model("child.first_name")).sendKeys("Javier Vildozo");
             element(by.model("child.birthday")).sendKeys("06/22/1981");
             element(by.model("child.gender")).element(by.css("[value='Male']")).click();
-            element(by.buttonText("Create")).click();
-            browser.sleep(1000);
-
+            funcionesAuxiliares.waitForElementToBeClickable(element(by.buttonText("Create")),1000);
+            browser.sleep(2000);
             element(by.repeater("child in childs")).getText().then(function (text) {
-
                 expect(text).toMatch("Javier Vildozo");
                 expect(text).toMatch("22/06/81");
             });
-
             var mypic = element(by.css("img[src*='boy.png']"));
             expect(mypic.isPresent()).toBe(true);
         });
     });
 
     describe('test cases when yo edit a child',function () {
-
-
         it('7 Edit a Child', function () {
-            var moreButton = element(by.id('moreButton'));
+            var moreButton = element(by.className("col col-50 button button-small button-calm"));
             moreButton.click();
             element(by.buttonText("Edit child")).click();
             element(by.model("editableChild.first_name")).clear().sendKeys("Lisa");
@@ -94,15 +94,12 @@ describe('Children Management: First Child', function() {
             var mypic = element(by.css("img[src*='girl.png']"));
             expect(mypic.isPresent()).toBe(true);
         });
-
-
     });
 
     describe('test cases when deleteing a child',function () {
 
         it('8 You can Cancel in windows in order to not delete a Child', function () {
             browser.get('http://localhost:8100');
-            var moreButton = element(by.id('moreButton'));
             moreButton.click();
             element(by.buttonText("Delete child")).click();
             element(by.buttonText("Cancel")).click();
@@ -114,14 +111,15 @@ describe('Children Management: First Child', function() {
 
 
         it('9 Delete a Child', function () {
-            var moreButton = element(by.id('moreButton'));
+            // var moreButton = element(by.id('moreButton'));
             moreButton.click();
             element(by.buttonText("Delete child")).click();
             browser.sleep(1000);
             element(by.buttonText("OK")).click();
             browser.sleep(1000);
-
-            expect(element(by.id('NoChildRegistered')).getText()).toEqual("PLEASE REGISTER ONE ABOVE");
+            element.all(by.tagName("b")).then(function (boldList){
+                expect(boldList[1].getText()).toEqual("PLEASE REGISTER ONE ABOVE");
+            });
         });
 
     });

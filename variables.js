@@ -10,6 +10,10 @@ var elementoACapturar = function(){
     this.childsName = function(){
         (by.id('childs_name'));
     };
+    this.createChildsName = function () {
+        element(by.model("child.first_name"));
+    }
+
 
 
 

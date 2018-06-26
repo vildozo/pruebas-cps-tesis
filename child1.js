@@ -172,7 +172,7 @@ describe('Protractor Children Management', function() {
     });
 // //======================================A L S U P=======================================================================
 
-    it('12 Ingresar a los Lagging Skills y marcar uno', function () {
+    it('12 Marcar un Lagging Skills', function () {
         element(by.id("laggingSkillsID")).click();
 
         element.all(by.binding("laggingSkill.description")).then(function (items) {
@@ -180,9 +180,10 @@ describe('Protractor Children Management', function() {
             element.all(by.className("button-positive ion-checkmark button")).then(function (botones) {
                 botones[0].click();
             });
-            browser.sleep(2000);
-            var marcado = element(by.className("positive ng-binding"));
-            expect(marcado.getCssValue('color')).toBe('rgba(56, 126, 245, 1)');
+        });
+
+        element.all(by.binding("laggingSkill.description")).then(function (items) {
+            expect(items[0].getAttribute('class')).toMatch('positive ng-binding');
         });
     });
 
@@ -215,8 +216,8 @@ describe('Protractor Children Management', function() {
     });
 
 
-//
-//
+
+
 // //=========================U N S O L V E D     P R O B L E M S==========================================================
 
     it('16 se puede acceder directamente a la vista de unsolved problems desde la vista de ALSUP', function () {
@@ -990,7 +991,7 @@ describe('Protractor Children Management', function() {
     });
 
 
-    it("79 Asignarle un Rate triste al segundo  possible solution", function () {
+    it("79 Asignarle un Rate de corazon roto al segundo  possible solution", function () {
         element.all(by.className("icon ion-star")).then(function (solution) {
             var radio_button = element(by.className("icon ion-android-radio-button-off"));
             expect(radio_button.isPresent()).toBeTruthy();

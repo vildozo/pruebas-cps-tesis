@@ -2,7 +2,7 @@ var auxiliares = function (){
 
     this.browserDisplay = function (){
         browser.driver.manage().window().setSize(750, 800);
-        browser.driver.manage().window().setPosition(800, 0);
+        browser.driver.manage().window().setPosition(500, 0);
     };
 
     this.desplazarElemento = function (ejeX, ejeY, elemento) {
@@ -14,6 +14,9 @@ var auxiliares = function (){
     };
 
 
+    this.goToMainPage = function () {
+        browser.get('http://localhost:8100');
+    };
     this.printSepartorAndElement = function (elemento) {
         console.log("====================================================================================================");
         console.log(elemento);
@@ -33,6 +36,8 @@ var auxiliares = function (){
         elm.click();
         // or browser.actions().touchActions().tap(elm).perform();
     };
+
+
 
 
 

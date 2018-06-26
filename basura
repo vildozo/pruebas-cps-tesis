@@ -1,0 +1,19 @@
+Started
+..F
+
+Failures:
+1) Children Management: First Child --> Test cases for registering a child--> 3 When
+creating a new child and name field is empthy you the Create button is disabled
+  Message:
+    Failed: No element found using locator: by.tagName("button")
+
+3 specs, 1 failure
+Finished in 37.836 seconds
+
+[16:15:06] I/launcher - 0 instance(s) of WebDriver still running
+[16:15:06] I/launcher - chrome #01 failed 1 test(s)
+[16:15:06] I/launcher - overall: 1 failed spec(s)
+[16:15:06] E/launcher - Process exited with error code 1
+
+Process finished with exit code 1
+0

@@ -7,32 +7,9 @@ var childsName=element(by.id('childs_name'));
 describe('Protractor Children Management', function() {
 
 
-    it('1 Open app on the Manage Children View', function () {
-        funcionesAuxiliares.browserDisplay();
-        browser.get('http://localhost:8100');
-        expect(browser.getTitle()).toEqual('Manage Children');
-    });
 
-    it('10 Crear 2do niño ', function () {
-        addAChild.click();
-        var childsNameInput = element(by.id('childs_name'));
-        element(by.model("child.first_name")).sendKeys("Maria Coloma");
-        element(by.model("child.gender")).element(by.css("[value='Female']")).click();
-        element(by.model("child.birthday")).sendKeys("04/12/1980");
-        element(by.buttonText("Create")).click();
-        browser.sleep(4000);
 
-        element(by.repeater("child in childs")).getText().then(function (text) {
-
-            expect(text).toMatch("Maria Coloma");
-            expect(text).toMatch("12/04/80");
-        });
-        var mypic = element(by.css("img[src*='girl.png']"));
-        expect(mypic.isPresent()).toBe(true);
-//          logger.log('info','');
-    });
-
-    it('81 Button Create disable when creating a new child when name field is empty', function() {
+    it('81 Button Create disable when creating a second child when name field is empty', function() {
         browser.get('http://localhost:8100');
         addAChild.click();
         element(by.model("child.gender")).element(by.css("[value='Male']")).click();
@@ -42,7 +19,7 @@ describe('Protractor Children Management', function() {
 //        logger.log('info','3 Button Create disable when creating a new child when name field is empty');
     });
 
-    it('82 Cant Register a Child with tomorrows Date', function() {
+    it('82 Cant Register a Second Child with tomorrows Date', function() {
         element(by.model("child.first_name")).sendKeys("Posterior a Fecha actual");
         element(by.model("child.gender")).element(by.css("[value='Male']")).click();
         element(by.model("child.birthday")).sendKeys("06/22/2081");
@@ -66,7 +43,7 @@ describe('Protractor Children Management', function() {
         expect(browser.getTitle()).toEqual('Manage Children');
     });
 
-    it('84 Add Second Child', function() {
+    it('84 Create second child', function() {
         browser.get('http://localhost:8100');
         addAChild.click();
         var childsNameInput = element(by.id('childs_name'));
@@ -122,7 +99,7 @@ describe('Protractor Children Management', function() {
     });
 
 
-    it('87 Delete a Child', function() {
+    it('87 Delete second Child', function() {
 //         var moreButton= element(by.id('moreButton'));
         element.all(by.id('moreButton')).then(function (items) {
             items[1].click()

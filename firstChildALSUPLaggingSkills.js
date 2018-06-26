@@ -3,8 +3,10 @@ var funcionesAuxiliares = new funciones.auxiliares;
 
 describe('Protractor Children Management', function() {
     it('11 Acceder a ALSUP de un Child y visualizar botones de lagging Skills y unsolved problem', function () {
+
         element(by.id("child_selected")).click();
-        browser.sleep(2000);
+
+        browser.sleep(3000);
 
         expect(element(by.tagName('h2')).getText()).toBe('ALSUP');
         expect(element(by.id("laggingSkillsID")).getText()).toBe('Lagging Skills');
@@ -12,18 +14,30 @@ describe('Protractor Children Management', function() {
     });
 
 
-    it('12 Ingresar a los Lagging Skills y marcar uno', function () {
+    it('12 Marcar un Lagging Skills', function () {
         element(by.id("laggingSkillsID")).click();
 
-        element.all(by.binding("laggingSkill.description")).then(function (items) {
-            funcionesAuxiliares.desplazarElemento(-200,0,items[0]);
+        var ls= element(by.binding("laggingSkill.description"));
+            funcionesAuxiliares.desplazarElemento(-200, 0, ls);
+            browser.sleep(5000);
             element.all(by.className("button-positive ion-checkmark button")).then(function (botones) {
                 botones[0].click();
             });
-            browser.sleep(2000);
-            var marcado = element(by.className("positive ng-binding"));
-            expect(marcado.getCssValue('color')).toBe('rgba(56, 126, 245, 1)');
-        });
+
+        // element.all(by.binding("laggingSkill.description")).then(function (items) {
+        //     funcionesAuxiliares.desplazarElemento(-200, 0, items[0]);
+        //     browser.sleep(5000);
+        //     element.all(by.className("button-positive ion-checkmark button")).then(function (botones) {
+        //         botones[0].click();
+        //     });
+        // });
+        browser.sleep(2000);
+        // element.all(by.binding("laggingSkill.description")).then(function (items) {
+        //     expect(items[0].getAttribute('class')).toMatch('positive ng-binding');
+        // });
+        var lsMarcado= element.all(by.binding("laggingSkill.description"));
+            expect(lsMarcado.getAttribute('class')).toMatch('positive ng-binding');
+
     });
 
 
@@ -34,7 +48,8 @@ describe('Protractor Children Management', function() {
         browser.sleep(3000);
         element.all(by.binding("laggingSkill.description")).then(function (items) {
 
-            expect(items[0].getCssValue('color')).toBe('rgba(68, 68, 68, 1)');
+            expect(items[0].getAttribute('class')).toMatch('dark ng-binding');
+            // expect(items[0].getCssValue('color')).toBe('rgba(68, 68, 68, 1)');
         });
     });
 
