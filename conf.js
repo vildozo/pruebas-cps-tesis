@@ -79,7 +79,7 @@ exports.config = {
       //"spec.js"
       // "child1.js"
       "firstChildManagement.js"
-      // , "firstChildALSUPLaggingSkills.js"
+      , "firstChildALSUPLaggingSkills.js"
       // , "firstChildALSUPUnsolvedProblems.js"
       // , "firstChildEmpathyStep.js"
       // , "firstChildAdultConcernStep.js",
