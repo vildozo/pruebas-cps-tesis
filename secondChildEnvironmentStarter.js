@@ -6,7 +6,7 @@ var elemento = new variables.elementos();
 describe("Use when wanting to only test second Child", function () {
 
 
-    var addAChild = element(by.id('new-child-btn'));
+    var addAChild = element(by.className("watchlist_menu button button-small button-clear button-positive"));
 
 
     it('1 Open app on the Manage Children View', function () {
@@ -17,7 +17,7 @@ describe("Use when wanting to only test second Child", function () {
     });
 
     it('10 Crear 2do niño ', function () {
-        browser.sleep(15000);
+        browser.sleep(2000);
         addAChild.click();
         var childsNameInput = element(by.id('childs_name'));
         element(by.model("child.first_name")).sendKeys("Maria Coloma");

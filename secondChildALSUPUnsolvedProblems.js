@@ -26,7 +26,10 @@ describe('Protractor Children Management', function() {
         element.all(by.className("col col-50 button button-small button-balanced")).then(function (items) {
             items[0].click();
         });
-        element(by.id("laggingSkillsID")).click();
+        element.all(by.className("item item-thumbnail-left")).then(function (items) {
+            items[0].click();
+        });
+        // element(by.id("laggingSkillsID")).click();
         element.all(by.binding("laggingSkill.description")).then(function (items) {
             var marcado = items[1];
             browser.sleep(10000);
@@ -40,7 +43,10 @@ describe('Protractor Children Management', function() {
             items[0].click();
         });
         browser.sleep(2000);
-        funcionesAuxiliares.waitForElementToBeClickable(element(by.id("unsolvedProblemsID")),1000);
+        // funcionesAuxiliares.waitForElementToBeClickable(element(by.id("unsolvedProblemsID")),1000);
+        element.all(by.className("item item-thumbnail-left")).then(function (items) {
+            items[1].click();
+        });
         browser.sleep(1000);
 
         expect(element(by.tagName('b')).getText()).toBe('Unsolved Problems');
@@ -116,6 +122,7 @@ describe('Protractor Children Management', function() {
         element.all(by.binding("unsolvedProblem.description")).then(function (items) {
             var botones_adicionales= items[1];
             funcionesAuxiliares.desplazarElemento(-200,0,botones_adicionales);
+        });
             browser.sleep(1000);
             element.all(by.id("edit_button")).then(function (items) {
                 items[1].click();
@@ -126,7 +133,7 @@ describe('Protractor Children Management', function() {
                     expect(items[1]).toBe("Unsolved Problem 2 EDITADO");
                 });
             });
-        });
+
     });
 
 
@@ -136,8 +143,12 @@ describe('Protractor Children Management', function() {
             items[0].click();
         });
         browser.sleep(2000);
-        funcionesAuxiliares.waitForElementToBeClickable(element(by.id("unsolvedProblemsID")),3000);
-        browser.sleep(1000);
+        // funcionesAuxiliares.waitForElementToBeClickable(element(by.id("unsolvedProblemsID")),3000);
+        // browser.sleep(1000);
+        element.all(by.className("item item-thumbnail-left")).then(function (items) {
+            items[1].click();
+        });
+        browser.sleep(10000);
         element.all(by.binding("unsolvedProblem.description")).then(function (items) {
             var botones_adicionales=items[1];
             funcionesAuxiliares.desplazarElemento(-200,0,botones_adicionales);
@@ -233,7 +244,7 @@ describe('Protractor Children Management', function() {
             });
             browser.sleep(2000);
         });
-        element(by.buttonText("Step 2: Define Adult's Concern")).click();
+        element(by.buttonText("Step 3: Invitation Step")).click();
         browser.sleep(2000);
         this.popupContainsHeaderText = function (text) {
             this.popupShouldExist();

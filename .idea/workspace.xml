@@ -2,19 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4aa29117-ea1d-4cc4-b907-e0f716bdb37e" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/basura" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/child1.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/child2.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pruebaFunciones.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/conf.js" afterPath="$PROJECT_DIR$/conf.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/debug.log" afterPath="$PROJECT_DIR$/debug.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/firstChildALSUPLaggingSkills.js" afterPath="$PROJECT_DIR$/firstChildALSUPLaggingSkills.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/firstChildALSUPUnsolvedProblems.js" afterPath="$PROJECT_DIR$/firstChildALSUPUnsolvedProblems.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/firstChildEmpathyStep.js" afterPath="$PROJECT_DIR$/firstChildEmpathyStep.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/firstChildInvitationStep.js" afterPath="$PROJECT_DIR$/firstChildInvitationStep.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/secondChildALSUPLaggingSills.js" afterPath="$PROJECT_DIR$/secondChildALSUPLaggingSills.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/secondChildManagement.js" afterPath="$PROJECT_DIR$/secondChildManagement.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/secondChildALSUPUnsolvedProblems.js" afterPath="$PROJECT_DIR$/secondChildALSUPUnsolvedProblems.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/secondChildEnvironmentStarter.js" afterPath="$PROJECT_DIR$/secondChildEnvironmentStarter.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/secondChildInvitationStep.js" afterPath="$PROJECT_DIR$/secondChildInvitationStep.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -35,31 +28,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="conf.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="conf.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/conf.js">
           <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="14" column="37" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="14" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="secondChildInvitationStep.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/secondChildInvitationStep.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="452" column="9" lean-forward="true" selection-start-line="452" selection-start-column="9" selection-end-line="452" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="secondChildALSUPUnsolvedProblems.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/secondChildALSUPUnsolvedProblems.js">
+          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="475">
-              <caret line="19" column="6" lean-forward="false" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="secondChildALSUPLaggingSills.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/secondChildALSUPLaggingSills.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="56" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="firstChildALSUPLaggingSkills.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/firstChildALSUPLaggingSkills.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="10" column="17" lean-forward="true" selection-start-line="10" selection-start-column="8" selection-end-line="13" selection-end-column="11" />
+              <caret line="46" column="10" lean-forward="false" selection-start-line="46" selection-start-column="8" selection-end-line="48" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -128,22 +121,22 @@
         <option value="$PROJECT_DIR$/spec.js" />
         <option value="$PROJECT_DIR$/firstChildAdultConcernStep.js" />
         <option value="$PROJECT_DIR$/secondChildEmpathyStep.js" />
-        <option value="$PROJECT_DIR$/secondChildALSUPUnsolvedProblems.js" />
         <option value="$PROJECT_DIR$/secondAdultConcernStep.js" />
-        <option value="$PROJECT_DIR$/secondChildInvitationStep.js" />
         <option value="$PROJECT_DIR$/variables.js" />
         <option value="$PROJECT_DIR$/child1.js" />
         <option value="$PROJECT_DIR$/basura" />
         <option value="$PROJECT_DIR$/funciones.js" />
-        <option value="$PROJECT_DIR$/secondChildEnvironmentStarter.js" />
         <option value="$PROJECT_DIR$/firstChildManagement.js" />
         <option value="$PROJECT_DIR$/firstChildALSUPLaggingSkills.js" />
         <option value="$PROJECT_DIR$/firstChildALSUPUnsolvedProblems.js" />
         <option value="$PROJECT_DIR$/firstChildEmpathyStep.js" />
         <option value="$PROJECT_DIR$/firstChildInvitationStep.js" />
         <option value="$PROJECT_DIR$/secondChildManagement.js" />
-        <option value="$PROJECT_DIR$/conf.js" />
         <option value="$PROJECT_DIR$/secondChildALSUPLaggingSills.js" />
+        <option value="$PROJECT_DIR$/secondChildEnvironmentStarter.js" />
+        <option value="$PROJECT_DIR$/secondChildALSUPUnsolvedProblems.js" />
+        <option value="$PROJECT_DIR$/secondChildInvitationStep.js" />
+        <option value="$PROJECT_DIR$/conf.js" />
       </list>
     </option>
   </component>
@@ -601,12 +594,12 @@
       <workItem from="1530319565548" duration="2557000" />
       <workItem from="1530752617781" duration="9749000" />
       <workItem from="1530793081526" duration="5051000" />
-      <workItem from="1530805465523" duration="2338000" />
+      <workItem from="1530805465523" duration="21133000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1197743000" />
+    <option name="totallyTimeSpent" value="1216538000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -619,13 +612,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16302083" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32922733" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26712328" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26712328" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -808,27 +801,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/secondChildInvitationStep.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="902">
-          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/secondChildALSUPUnsolvedProblems.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/secondChildEmpathyStep.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="15" column="39" lean-forward="false" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/variables.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
@@ -852,13 +824,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/child2.js" />
     <entry file="file://$PROJECT_DIR$/child1.js" />
-    <entry file="file://$PROJECT_DIR$/secondChildEnvironmentStarter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="20" column="8" lean-forward="false" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/firstChildEmpathyStep.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="505">
@@ -890,29 +855,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/firstChildManagement.js">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="10" column="20" lean-forward="false" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="109" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/secondChildEnvironmentStarter.js">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
-          <caret line="8" column="10" lean-forward="false" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/secondChildManagement.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-970">
-          <caret line="77" column="0" lean-forward="false" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/firstChildALSUPUnsolvedProblems.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="190" column="47" lean-forward="false" selection-start-line="190" selection-start-column="47" selection-end-line="190" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/conf.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="19" column="6" lean-forward="false" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
+          <caret line="8" column="109" lean-forward="false" selection-start-line="8" selection-start-column="109" selection-end-line="8" selection-end-column="109" />
           <folding />
         </state>
       </provider>
@@ -920,15 +872,63 @@
     <entry file="file://$PROJECT_DIR$/firstChildALSUPLaggingSkills.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
-          <caret line="10" column="17" lean-forward="true" selection-start-line="10" selection-start-column="8" selection-end-line="13" selection-end-column="11" />
+          <caret line="10" column="18" lean-forward="true" selection-start-line="10" selection-start-column="7" selection-end-line="13" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/secondChildALSUPLaggingSills.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="56" selection-end-column="7" />
+        <state relative-caret-position="155">
+          <caret line="54" column="8" lean-forward="false" selection-start-line="54" selection-start-column="8" selection-end-line="56" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/firstChildALSUPUnsolvedProblems.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="190" column="52" lean-forward="true" selection-start-line="190" selection-start-column="35" selection-end-line="190" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/secondChildManagement.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="8" column="20" lean-forward="true" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="109" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/secondChildEmpathyStep.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4866">
+          <caret line="15" column="39" lean-forward="false" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/secondChildALSUPUnsolvedProblems.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="46" column="10" lean-forward="false" selection-start-line="46" selection-start-column="8" selection-end-line="48" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/secondChildInvitationStep.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="452" column="9" lean-forward="true" selection-start-line="452" selection-start-column="9" selection-end-line="452" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conf.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="14" column="37" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="14" selection-end-column="37" />
           <folding />
         </state>
       </provider>

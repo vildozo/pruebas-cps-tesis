@@ -19,20 +19,24 @@ describe('Protractor Children Management', function() {
 
 
     it('90 Ingresar a los Lagging Skills y marcar uno', function () {
-        // element(by.id("laggingSkillsID")).click();
-        element.all(by.className("item item-thumbnail-left")).getText().then(function (items) {
+        element.all(by.className("item item-thumbnail-left")).then(function (items) {
             items[0].click();
         });
-
-        element.all(by.binding("laggingSkill.description")).then(function (items) {
-            funcionesAuxiliares.desplazarElemento(-200,0,items[1]);
-            element.all(by.className("button-positive ion-checkmark button")).then(function (botones) {
-                botones[1].click();
-            });
-            browser.sleep(2000);
-            var marcado = element(by.className("positive ng-binding"));
-            expect(marcado.getCssValue('color')).toBe('rgba(56, 126, 245, 1)');
+        // var ls= element(by.binding("laggingSkill.description"));
+        //     funcionesAuxiliares.desplazarElemento(-200, 0, ls);
+        //     browser.sleep(5000);
+        element.all(by.binding("laggingSkill.description")).then(function (laggingSkillsList) {
+            funcionesAuxiliares.desplazarElemento(-200, 0, laggingSkillsList[0]);
+            browser.sleep(5000);
         });
+
+        element.all(by.className("button-positive ion-checkmark button")).then(function (botones) {
+            botones[0].click();
+        });
+        browser.sleep(2000);
+        var lsMarcado= element.all(by.binding("laggingSkill.description"));
+        expect(lsMarcado.getAttribute('class')).toMatch('positive ng-binding');
+
     });
 
 
@@ -55,15 +59,15 @@ describe('Protractor Children Management', function() {
 
         expect(element(by.tagName('b')).getText()).toBe('Unsolved Problems');
     });
-    //
-    // it('93 debe mostrar el nombre del child en la vista de unsolved problems',function () {
-    //     element(by.binding("activeChild.first_name")).getText().then(function (text) {
-    //
-    //         expect(text).toBe("Marcos Brunet");
-    //     });
-    // });
-    //
-    //
-    //
+
+    it('93 debe mostrar el nombre del child en la vista de unsolved problems',function () {
+        element(by.binding("activeChild.first_name")).getText().then(function (text) {
+
+            expect(text).toBe("Marcos Brunet");
+        });
+    });
+
+
+
 
 });
