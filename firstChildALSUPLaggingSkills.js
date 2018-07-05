@@ -19,9 +19,14 @@ describe('Protractor Children Management', function() {
         element.all(by.className("item item-thumbnail-left")).then(function (items) {
             items[0].click();
         });
-        var ls= element(by.binding("laggingSkill.description"));
-            funcionesAuxiliares.desplazarElemento(-200, 0, ls);
+        // var ls= element(by.binding("laggingSkill.description"));
+        //     funcionesAuxiliares.desplazarElemento(-200, 0, ls);
+        //     browser.sleep(5000);
+        element.all(by.binding("laggingSkill.description")).then(function (laggingSkillsList) {
+            funcionesAuxiliares.desplazarElemento(-200, 0, laggingSkillsList[0]);
             browser.sleep(5000);
+        });
+
             element.all(by.className("button-positive ion-checkmark button")).then(function (botones) {
                 botones[0].click();
             });

@@ -19,7 +19,7 @@ describe('Protractor Children Management', function() {
 
         expect(element(by.id("help_message")).getText()).toMatch("I've noticed that you've been having ");
         expect(element(by.id("help_message")).getText()).toContain("Unsolved Problem 2");
-        expect(element(by.id("help_message")).getText()).toMatch(", what's up?");
+        expect(element(by.id("help_message")).getText()).toContain(", what's up?");
     });
 
     describe('Test Cases when creating a new Child Concern', function () {

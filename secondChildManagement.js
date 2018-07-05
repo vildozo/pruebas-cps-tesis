@@ -6,6 +6,8 @@ var childsName=element(by.id('childs_name'));
 
 describe('Protractor Children Management', function() {
 
+    var addAChild = element(by.className("watchlist_menu button button-small button-clear button-positive"));
+    var moreButton = element(by.className("col col-50 button button-small button-calm"));
 
 
 
@@ -16,7 +18,6 @@ describe('Protractor Children Management', function() {
         var createButton = element(by.buttonText("Create"));
 
         expect(createButton.isEnabled()).toBe(false);
-//        logger.log('info','3 Button Create disable when creating a new child when name field is empty');
     });
 
     it('82 Cant Register a Second Child with tomorrows Date', function() {
@@ -35,8 +36,8 @@ describe('Protractor Children Management', function() {
     it('83 Cancel option when registeringa a "New Child" ', function() {
         browser.get('http://localhost:8100');
         addAChild.click();
-        titleModalNewChild = element(by.id('head_New_Child'));
-        expect(titleModalNewChild.getText()).toEqual("New Child");
+        titleModalNewChild = element.all(by.tagName("h1"));
+        expect(titleModalNewChild.getText()).toContain("New Child");
         element(by.buttonText("Cancel")).click();
         browser.sleep(2000);
 
@@ -54,7 +55,6 @@ describe('Protractor Children Management', function() {
         browser.sleep(1000);
 
         element.all(by.repeater("child in childs")).getText().then(function (text) {
-
             expect(text[0]).toMatch("Javier Vildozo");
             expect(text[0]).toMatch("22/06/81");
         });
@@ -64,24 +64,23 @@ describe('Protractor Children Management', function() {
     });
 
     it('85 Edit a Child', function() {
-        element.all(by.id('moreButton')).then(function (items) {
+        element.all(by.className("col col-50 button button-small button-calm")).then(function (items) {
             items[1].click();
-            element(by.buttonText("Edit child")).click();
-            element(by.model("editableChild.first_name")).clear().sendKeys("Guido Javier Vildozo Mendez");
-            element(by.buttonText("Save")).click();
-            browser.sleep(2000);
-            element.all(by.repeater("child in childs")).then(function (text) {
-                expect(text[0].getText()).toContain("Guido Javier Vildozo Mendez");
-                expect(text[0].getText()).toContain("22/06/81");
-            });
+        });
+        element(by.buttonText("Edit child")).click();
+        element(by.model("editableChild.first_name")).clear().sendKeys("Guido Javier Vildozo Mendez");
+        element(by.buttonText("Save")).click();
+        browser.sleep(2000);
+        element.all(by.repeater("child in childs")).then(function (text) {
+            expect(text[0].getText()).toContain("Guido Javier Vildozo Mendez");
+            expect(text[0].getText()).toContain("22/06/81");
         });
     });
 
-//
+
     it('86 When deleteing a Child you can cancel', function() {
         browser.get('http://localhost:8100');
-        var moreButton= element(by.id('moreButton'));
-        element.all(by.id('moreButton')).then(function (items) {
+        element.all(by.className("col col-50 button button-small button-calm")).then(function (items) {
             items[1].click();
             element(by.buttonText("Delete child")).click();
             browser.sleep(3000);
@@ -100,9 +99,8 @@ describe('Protractor Children Management', function() {
 
 
     it('87 Delete second Child', function() {
-//         var moreButton= element(by.id('moreButton'));
-        element.all(by.id('moreButton')).then(function (items) {
-            items[1].click()
+        element.all(by.className("col col-50 button button-small button-calm")).then(function (items) {
+            items[1].click();
         });
         element(by.buttonText("Delete child")).click();
         browser.sleep(2000);

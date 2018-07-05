@@ -57,17 +57,19 @@ describe('testing unsolved problems of ALSUP ',function () {
 
 
         it('20 al tener un unsolved problem creado el lagging skill correspondiente se marcara de forma automatica', function () {
-            browser.get('http://localhost:8100');
-            element(by.id("child_selected")).click();
-            element(by.id("laggingSkillsID")).click();
+            funcionesAuxiliares.goToMainPage();
+            element(by.className("col col-50 button button-small button-balanced")).click();
+            element.all(by.className("item item-thumbnail-left")).then(function (items) {
+                items[0].click();
+            });
             element.all(by.binding("laggingSkill.description")).then(function (items) {
                 var marcado = items[0];
-                expect(marcado.getCssValue('color')).toBe('rgba(56, 126, 245, 1)');
+                expect(marcado.getAttribute('class')).toMatch('positive ng-binding');
             });
         });
     });
 
-//
+
     describe('test cases when editing an unsolved problem', function () {
         it('21 Al editar no se puede dejar los campos de un unsolved problem sin llenar', function () {
             element.all(by.binding("laggingSkill.description")).then(function (items) {
@@ -113,7 +115,7 @@ describe('testing unsolved problems of ALSUP ',function () {
         element(by.id("delete_button")).click();
         //browser.sleep(4000);
         element(by.buttonText("OK")).click();
-        //browser.sleep(3000);
+        browser.sleep(3000);
         element(by.id("no_unsolved_problems_message")).getText().then(function (text) {
 
             expect(text).toBe("No unsolved problems registered. Please register one above.");

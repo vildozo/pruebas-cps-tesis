@@ -352,9 +352,11 @@ describe('Protractor Children Management', function() {
 
         it("80Mostrar el mejor rating para el unsolved problem", function () {
             browser.get('http://localhost:8100');
-            element(by.id("child_selected")).click();
+            element(by.className("col col-50 button button-small button-balanced")).click();
             browser.sleep(2000);
-            element(by.id("unsolvedProblemsID")).click();
+            element.all(by.className("item item-thumbnail-left")).then(function (items) {
+                items[1].click();
+            });
             var icon_sad = element(by.className("icon ion-sad"));
             var icon_heart_broken = element(by.className("icon ion-heart-broken"));
             var icon_heart_ = element(by.className("icon ion-heart"));

@@ -11,13 +11,18 @@ describe('Protractor Children Management', function() {
         browser.sleep(2000);
         //
         expect(element(by.tagName('h2')).getText()).toBe('ALSUP');
-        expect(element(by.id("laggingSkillsID")).getText()).toBe('Lagging Skills');
-        expect(element(by.id("unsolvedProblemsID")).getText()).toBe('Unsolved Problems');
+        element.all(by.className("item item-thumbnail-left")).getText().then(function (items) {
+            expect(items[0]).toBe('Lagging Skills');
+            expect(items[1]).toBe('Unsolved Problems');
+        });
     });
 
 
     it('90 Ingresar a los Lagging Skills y marcar uno', function () {
-        element(by.id("laggingSkillsID")).click();
+        // element(by.id("laggingSkillsID")).click();
+        element.all(by.className("item item-thumbnail-left")).getText().then(function (items) {
+            items[0].click();
+        });
 
         element.all(by.binding("laggingSkill.description")).then(function (items) {
             funcionesAuxiliares.desplazarElemento(-200,0,items[1]);
@@ -50,15 +55,15 @@ describe('Protractor Children Management', function() {
 
         expect(element(by.tagName('b')).getText()).toBe('Unsolved Problems');
     });
-
-    it('93 debe mostrar el nombre del child en la vista de unsolved problems',function () {
-        element(by.binding("activeChild.first_name")).getText().then(function (text) {
-
-            expect(text).toBe("Marcos Brunet");
-        });
-    });
-
-
-
+    //
+    // it('93 debe mostrar el nombre del child en la vista de unsolved problems',function () {
+    //     element(by.binding("activeChild.first_name")).getText().then(function (text) {
+    //
+    //         expect(text).toBe("Marcos Brunet");
+    //     });
+    // });
+    //
+    //
+    //
 
 });
